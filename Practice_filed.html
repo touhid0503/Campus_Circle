@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Campus Circle </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="main.html" class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                Campus Circle
+            </a>
+            <ul class="nav-menu">
+                <!-- <li class="nav-item"><a href="#home" class="nav-link">Home</a></li> -->
+                <li class="nav-item"><a href="#newsfeed" class="nav-link">Newsfeed</a></li>
+                <li class="nav-item"><a href="#marketplace" class="nav-link">Marketplace</a></li>
+                <li class="nav-item"><a href="battle_filed.html" class="nav-link">Battle</a></li>
+                <li class="nav-item"><a href="video_Feed.html" class="nav-link">Video</a></li>
+                <li class="nav-item"><a href="Practice_filed.html" class="nav-link">Practice</a></li>
+                <li class="nav-item"><a href="knowladge.html" class="nav-link">Knowledge</a></li>
+                <li class="nav-item"><a href="AI_Filed.html" class="nav-link">AI</a></li>
+                <li class="nav-item"><a href="#myProfile" class="nav-link">My Profile</a></li>
+                <li class="nav-item"><a href="#login" class="nav-link login btn">Student Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</body>
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PracticePro - AI-Powered Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            --gradient-3: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(99, 102, 241, 0.1);
+            color: white;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Dashboard Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card:nth-child(1) .stat-icon {
+            background: var(--gradient-1);
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: var(--gradient-2);
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: var(--gradient-3);
+        }
+
+        .stat-card:nth-child(4) .stat-icon {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: #cbd5e1;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: white;
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-1);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Content Panels */
+        .content-panel {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Problems Grid */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .problem-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .problem-difficulty {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .difficulty-easy {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .difficulty-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .difficulty-hard {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .problem-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .problem-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .problem-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Code Editor */
+        .editor-container {
+            background: #1a1b26;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .editor-header {
+            background: #16161e;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .language-selector {
+            background: #2a2c3a;
+            border: 1px solid var(--card-border);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .editor-body {
+            padding: 0;
+            position: relative;
+        }
+
+        #codeEditor {
+            width: 100%;
+            min-height: 400px;
+            background: #1a1b26;
+            color: #c0caf5;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            padding: 1.5rem;
+            border: none;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        #codeEditor:focus {
+            outline: none;
+        }
+
+        /* Test Cases */
+        .test-cases {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .test-case {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .test-case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .test-case-status {
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-pass {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .status-fail {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        /* Submissions Table */
+        .submissions-table {
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+        }
+
+        .submissions-table th {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        .submissions-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .submissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .submissions-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Leaderboard */
+        .leaderboard-container {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .leaderboard-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .rank {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            min-width: 40px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid var(--card-border);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .problems-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .main-container {
+                padding: 1rem;
+                margin-top: 120px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+
+            .tab-btn {
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problem-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                width: 95%;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Achievement Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+        }
+
+        .badge-silver {
+            background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 100%);
+        }
+
+        .badge-bronze {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>PracticePro</h1>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#" class="nav-link active" onclick="showPanel('dashboard')">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('problems')">
+                <i class="fas fa-puzzle-piece"></i> Problems
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('submissions')">
+                <i class="fas fa-history"></i> Submissions
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('leaderboard')">
+                <i class="fas fa-trophy"></i> Leaderboard
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('create')">
+                <i class="fas fa-plus-circle"></i> Create
+            </a>
+             <a href="main.html" class="nav-link" onclick="history.back()">
+                <i class="fas fa-arrow"></i> Campus Circle
+            </a>
+
+        </nav>
+
+        <div class="user-profile">
+            <div class="avatar">JS</div>
+            <div>
+                <div style="font-weight: 600;">John Student</div>
+                <div style="font-size: 0.9rem; color: #94a3b8;">Level 5 • 1250 Points</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Dashboard Panel -->
+        <div id="dashboard-panel" class="content-panel active">
+            <h2
+                style="font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(135deg, #fff 0%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Welcome back, John! 👋
+            </h2>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-value">48</div>
+                    <div>Problems Solved</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="stat-value">1250</div>
+                    <div>Total Points</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-value">85%</div>
+                    <div>Accuracy Rate</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    <div class="stat-value">#42</div>
+                    <div>Global Rank</div>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div
+                style="background: var(--card-bg); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; border: 1px solid var(--card-border);">
+                <h3 style="margin-bottom: 1rem;">Weekly Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: #94a3b8;">
+                    <span>7 problems solved this week</span>
+                    <span>75% of goal</span>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div
+                style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid var(--card-border);">
+                <h3 style="margin-bottom: 1.5rem;">Recent Activity</h3>
+                <div style="display: grid; gap: 1rem;">
+                    <div
+                        style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                        <div
+                            style="width: 40px; height: 40px; background: var(--gradient-2); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Solved "Array Rotation"</div>
+                            <div style="color: #94a3b8; font-size: 0.9rem;">+50 points • 2 hours ago</div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                        <div
+                            style="width: 40px; height: 40px; background: var(--gradient-3); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-star" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Earned "Fast Solver" badge</div>
+                            <div style="color: #94a3b8; font-size: 0.9rem;">Solved 5 problems in 24h • 1 day ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problems Panel -->
+        <div id="problems-panel" class="content-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem;">Practice Problems</h2>
+                <div style="display: flex; gap: 1rem;">
+                    <select class="language-selector" style="padding: 0.8rem 1.5rem;">
+                        <option>All Difficulty</option>
+                        <option>Easy</option>
+                        <option>Medium</option>
+                        <option>Hard</option>
+                    </select>
+                    <select class="language-selector" style="padding: 0.8rem 1.5rem;">
+                        <option>All Topics</option>
+                        <option>Arrays</option>
+                        <option>Strings</option>
+                        <option>Dynamic Programming</option>
+                        <option>Graphs</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="problems-grid">
+                <!-- Problem cards will be dynamically loaded -->
+            </div>
+        </div>
+
+        <!-- Code Editor Modal -->
+        <div id="editor-modal" class="modal">
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 id="problem-modal-title">Problem Title</h2>
+                    <button onclick="closeModal()"
+                        style="background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 1.5rem;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div id="problem-description" style="margin-bottom: 2rem; line-height: 1.6; color: #cbd5e1;">
+                    <!-- Problem description will be loaded here -->
+                </div>
+
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <select id="languageSelect" class="language-selector">
+                            <option value="python">Python 3</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                        </select>
+                        <div>
+                            <button class="btn btn-secondary" onclick="runCode()">
+                                <i class="fas fa-play"></i> Run Code
+                            </button>
+                            <button class="btn btn-primary" onclick="submitCode()" style="margin-left: 0.5rem;">
+                                <i class="fas fa-paper-plane"></i> Submit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="editor-body">
+                        <textarea id="codeEditor" spellcheck="false"># Write your solution here
+# Example Python solution
+
+def solve_problem(input_data):
+    # Your logic here
+    return result</textarea>
+                    </div>
+                </div>
+
+                <div class="test-cases" id="test-cases-container">
+                    <!-- Test cases will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Submissions Panel -->
+        <div id="submissions-panel" class="content-panel">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Your Submissions</h2>
+            <table class="submissions-table">
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Language</th>
+                        <th>Status</th>
+                        <th>Time</th>
+                        <th>Memory</th>
+                        <th>Submitted</th>
+                    </tr>
+                </thead>
+                <tbody id="submissions-body">
+                    <!-- Submissions will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Leaderboard Panel -->
+        <div id="leaderboard-panel" class="content-panel">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Top Performers</h2>
+            <div class="leaderboard-container">
+                <div class="leaderboard-item">
+                    <div class="rank">#1</div>
+                    <div
+                        style="width: 40px; height: 40px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                        AK
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600;">Alex Kumar</div>
+                        <div style="color: #94a3b8; font-size: 0.9rem;">University of Tech</div>
+                    </div>
+                    <div style="font-weight: 800; color: var(--primary);">2850 pts</div>
+                </div>
+
+                <!-- More leaderboard items -->
+            </div>
+        </div>
+
+        <!-- Create Panel -->
+        <div id="create-panel" class="content-panel">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Create New Problem</h2>
+            <div
+                style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid var(--card-border);">
+                <div style="display: grid; gap: 1.5rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Problem Title</label>
+                        <input type="text" id="problemTitle" placeholder="e.g., Two Sum Problem"
+                            style="width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); border-radius: 10px; color: white;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Description</label>
+                        <textarea id="problemDesc" rows="6" placeholder="Write problem description..."
+                            style="width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); border-radius: 10px; color: white; resize: vertical;"></textarea>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Difficulty</label>
+                            <select id="problemDifficulty"
+                                style="width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); border-radius: 10px; color: white;">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Points</label>
+                            <input type="number" id="problemPoints" value="100"
+                                style="width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); border-radius: 10px; color: white;">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Test Cases</label>
+                        <div id="testCasesContainer">
+                            <!-- Test cases will be added here -->
+                        </div>
+                        <button class="btn btn-secondary" onclick="addTestCase()" style="margin-top: 1rem;">
+                            <i class="fas fa-plus"></i> Add Test Case
+                        </button>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="createProblem()">
+                        <i class="fas fa-plus-circle"></i> Create Problem
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sample Data
+        const problemsData = [
+            {
+                id: 1,
+                title: "Two Sum",
+                difficulty: "easy",
+                points: 100,
+                solved: true,
+                description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+                testCases: [
+                    { input: "[2,7,11,15]\n9", output: "[0,1]" },
+                    { input: "[3,2,4]\n6", output: "[1,2]" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Binary Tree Inorder Traversal",
+                difficulty: "easy",
+                points: 150,
+                solved: true,
+                description: "Given the root of a binary tree, return the inorder traversal of its nodes' values."
+            },
+            {
+                id: 3,
+                title: "Longest Palindromic Substring",
+                difficulty: "medium",
+                points: 200,
+                solved: false,
+                description: "Given a string s, return the longest palindromic substring in s."
+            },
+            {
+                id: 4,
+                title: "Merge k Sorted Lists",
+                difficulty: "hard",
+                points: 300,
+                solved: false,
+                description: "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order."
+            }
+        ];
+
+        const submissionsData = [
+            { problem: "Two Sum", language: "Python", status: "Accepted", time: "15ms", memory: "14.2MB", submitted: "2 hours ago" },
+            { problem: "Binary Tree", language: "Java", status: "Accepted", time: "5ms", memory: "40.1MB", submitted: "1 day ago" },
+            { problem: "Palindrome", language: "C++", status: "Wrong Answer", time: "N/A", memory: "N/A", submitted: "2 days ago" }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            loadProblems();
+            loadSubmissions();
+            setupCodeEditor();
+        });
+
+        // Panel Navigation
+        function showPanel(panelId) {
+            // Hide all panels
+            document.querySelectorAll('.content-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Remove active from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show selected panel
+            document.getElementById(`${panelId}-panel`).classList.add('active');
+
+            // Set active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.textContent.includes(panelId.charAt(0).toUpperCase() + panelId.slice(1))) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Special handling for dashboard
+            if (panelId === 'dashboard') {
+                document.querySelector('.nav-link:nth-child(1)').classList.add('active');
+            }
+        }
+
+        // Load Problems
+        function loadProblems() {
+            const grid = document.querySelector('.problems-grid');
+            grid.innerHTML = '';
+
+            problemsData.forEach(problem => {
+                const card = document.createElement('div');
+                card.className = 'problem-card';
+                card.innerHTML = `
+                    <div class="problem-difficulty difficulty-${problem.difficulty}">
+                        ${problem.difficulty.toUpperCase()}
+                    </div>
+                    <h3 class="problem-title">
+                        ${problem.title}
+                        ${problem.solved ? '<i class="fas fa-check-circle" style="color: #10b981;"></i>' : ''}
+                    </h3>
+                    <div class="problem-meta">
+                        <span><i class="fas fa-star"></i> ${problem.points} points</span>
+                        <span><i class="fas fa-user-graduate"></i> 85% solved</span>
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1.5rem; line-height: 1.5;">
+                        ${problem.description.substring(0, 100)}...
+                    </p>
+                    <div class="problem-actions">
+                        <button class="btn btn-primary" onclick="openProblemEditor(${problem.id})">
+                            <i class="fas fa-code"></i> Solve
+                        </button>
+                        <button class="btn btn-secondary" onclick="viewProblemDetails(${problem.id})">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Load Submissions
+        function loadSubmissions() {
+            const tbody = document.getElementById('submissions-body');
+            tbody.innerHTML = '';
+
+            submissionsData.forEach(sub => {
+                const statusClass = sub.status === 'Accepted' ? 'status-pass' : 'status-fail';
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="font-weight: 600;">${sub.problem}</td>
+                    <td><span class="badge">${sub.language}</span></td>
+                    <td><span class="test-case-status ${statusClass}">${sub.status}</span></td>
+                    <td>${sub.time}</td>
+                    <td>${sub.memory}</td>
+                    <td style="color: #94a3b8;">${sub.submitted}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Open Problem Editor
+        function openProblemEditor(problemId) {
+            const problem = problemsData.find(p => p.id === problemId);
+            if (!problem) return;
+
+            document.getElementById('problem-modal-title').textContent = problem.title;
+            document.getElementById('problem-description').innerHTML = `
+                <h3 style="margin-bottom: 1rem; color: white;">Problem Statement</h3>
+                <p style="margin-bottom: 1rem;">${problem.description}</p>
+                <h4 style="margin: 1.5rem 0 0.5rem 0; color: white;">Example:</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; color: #94a3b8; margin-bottom: 1rem;">
+Input: [2,7,11,15], target = 9
+Output: [0,1]
+                </pre>
+                <h4 style="margin: 1.5rem 0 0.5rem 0; color: white;">Constraints:</h4>
+                <ul style="color: #94a3b8; padding-left: 1.5rem;">
+                    <li>2 ≤ nums.length ≤ 10^4</li>
+                    <li>-10^9 ≤ nums[i] ≤ 10^9</li>
+                    <li>-10^9 ≤ target ≤ 10^9</li>
+                </ul>
+            `;
+
+            // Load test cases
+            const testContainer = document.getElementById('test-cases-container');
+            testContainer.innerHTML = `
+                <h3 style="margin-bottom: 1rem; color: white;">Test Cases</h3>
+            `;
+
+            if (problem.testCases) {
+                problem.testCases.forEach((testCase, index) => {
+                    const testDiv = document.createElement('div');
+                    testDiv.className = 'test-case';
+                    testDiv.innerHTML = `
+                        <div class="test-case-header">
+                            <strong>Test Case ${index + 1}</strong>
+                            <span class="test-case-status">Pending</span>
+                        </div>
+                        <div style="display: grid; gap: 0.5rem;">
+                            <div>
+                                <strong>Input:</strong>
+                                <pre style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem;">${testCase.input}</pre>
+                            </div>
+                            <div>
+                                <strong>Expected Output:</strong>
+                                <pre style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem;">${testCase.output}</pre>
+                            </div>
+                        </div>
+                    `;
+                    testContainer.appendChild(testDiv);
+                });
+            }
+
+            document.getElementById('editor-modal').style.display = 'flex';
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('editor-modal').style.display = 'none';
+        }
+
+        // Setup Code Editor
+        function setupCodeEditor() {
+            const editor = document.getElementById('codeEditor');
+
+            // Simple syntax highlighting (basic)
+            editor.addEventListener('input', function () {
+                // Basic Python highlighting
+                const code = editor.value;
+                const lines = code.split('\n');
+                let highlighted = '';
+
+                lines.forEach(line => {
+                    let hlLine = line
+                        .replace(/def\b/g, '<span style="color: #ff79c6;">def</span>')
+                        .replace(/return\b/g, '<span style="color: #ff79c6;">return</span>')
+                        .replace(/#.*/g, '<span style="color: #6272a4;">$&</span>')
+                        .replace(/"[^"]*"/g, '<span style="color: #f1fa8c;">$&</span>');
+                    highlighted += hlLine + '\n';
+                });
+
+                // Create a temporary element to show highlighting
+                // In production, use a proper code editor library
+            });
+        }
+
+        // Run Code
+        function runCode() {
+            const testCases = document.querySelectorAll('#test-cases-container .test-case');
+
+            testCases.forEach((testCase, index) => {
+                const status = testCase.querySelector('.test-case-status');
+
+                // Simulate testing with random result
+                setTimeout(() => {
+                    if (Math.random() > 0.3) {
+                        status.textContent = 'Passed';
+                        status.className = 'test-case-status status-pass';
+                        status.innerHTML = '<i class="fas fa-check"></i> Passed';
+                    } else {
+                        status.textContent = 'Failed';
+                        status.className = 'test-case-status status-fail';
+                        status.innerHTML = '<i class="fas fa-times"></i> Failed';
+                    }
+                }, index * 1000);
+            });
+        }
+
+        // Submit Code
+        function submitCode() {
+            const modal = document.getElementById('editor-modal');
+
+            // Show loading
+            const submitBtn = modal.querySelector('.btn-primary');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            // Simulate submission
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Show result modal
+                alert('Submission Successful! Your solution passed all test cases. +100 points!');
+                closeModal();
+
+                // Update UI
+                const pointsElement = document.querySelector('.stat-card:nth-child(2) .stat-value');
+                const currentPoints = parseInt(pointsElement.textContent);
+                pointsElement.textContent = (currentPoints + 100).toString();
+
+                // Add to submissions
+                const newSubmission = {
+                    problem: document.getElementById('problem-modal-title').textContent,
+                    language: document.getElementById('languageSelect').value,
+                    status: 'Accepted',
+                    time: Math.floor(Math.random() * 20) + 'ms',
+                    memory: Math.floor(Math.random() * 30) + 10 + 'MB',
+                    submitted: 'Just now'
+                };
+
+                submissionsData.unshift(newSubmission);
+                loadSubmissions();
+
+            }, 2000);
+        }
+
+        // Add Test Case
+        function addTestCase() {
+            const container = document.getElementById('testCasesContainer');
+            const testCaseCount = container.children.length + 1;
+
+            const testCaseDiv = document.createElement('div');
+            testCaseDiv.className = 'test-case';
+            testCaseDiv.style.marginBottom = '1rem';
+            testCaseDiv.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <strong>Test Case ${testCaseCount}</strong>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: #ef4444; cursor: pointer;">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div style="display: grid; gap: 0.5rem;">
+                    <div>
+                        <input type="text" placeholder="Input" style="width: 100%; padding: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); border-radius: 6px; color: white;">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Expected Output" style="width: 100%; padding: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); border-radius: 6px; color: white;">
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(testCaseDiv);
+        }
+
+        // Create Problem
+        function createProblem() {
+            const title = document.getElementById('problemTitle').value;
+            const desc = document.getElementById('problemDesc').value;
+            const difficulty = document.getElementById('problemDifficulty').value;
+            const points = document.getElementById('problemPoints').value;
+
+            if (!title || !desc) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Show success message
+            alert(`Problem "${title}" created successfully! It will now be available for students to solve.`);
+
+            // Reset form
+            document.getElementById('problemTitle').value = '';
+            document.getElementById('problemDesc').value = '';
+            document.getElementById('problemPoints').value = '100';
+            document.getElementById('testCasesContainer').innerHTML = '';
+
+            // Add to problems list (in real app, this would go to backend)
+            const newProblem = {
+                id: problemsData.length + 1,
+                title,
+                difficulty,
+                points: parseInt(points),
+                solved: false,
+                description: desc
+            };
+
+            problemsData.push(newProblem);
+            showPanel('problems');
+            loadProblems();
+        }
+
+        // View Problem Details
+        function viewProblemDetails(problemId) {
+            const problem = problemsData.find(p => p.id === problemId);
+            if (problem) {
+                alert(`Problem: ${problem.title}\n\nDifficulty: ${problem.difficulty}\nPoints: ${problem.points}\n\nDescription: ${problem.description}`);
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('editor-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

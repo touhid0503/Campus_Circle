@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Campus Circle </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="main.html" class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                Campus Circle
+            </a>
+            <ul class="nav-menu">
+                <!-- <li class="nav-item"><a href="#home" class="nav-link">Home</a></li> -->
+                <li class="nav-item"><a href="#newsfeed" class="nav-link">Newsfeed</a></li>
+                <li class="nav-item"><a href="#marketplace" class="nav-link">Marketplace</a></li>
+                <li class="nav-item"><a href="battle_filed.html" class="nav-link">Battle</a></li>
+                <li class="nav-item"><a href="video_Feed.html" class="nav-link">Video</a></li>
+                <li class="nav-item"><a href="Practice_filed.html" class="nav-link">Practice</a></li>
+                <li class="nav-item"><a href="knowladge.html" class="nav-link">Knowledge</a></li>
+                <li class="nav-item"><a href="AI_Filed.html" class="nav-link">AI</a></li>
+                <li class="nav-item"><a href="#myProfile" class="nav-link">My Profile</a></li>
+                <li class="nav-item"><a href="#login" class="nav-link login btn">Student Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</body>
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Video Feed</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+body {
+background: #0a0a0f;
+color: #fff;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+/* Open Button */
+.open-video-btn {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+padding: 20px 40px;
+border-radius: 50px;
+font-size: 1.5rem;
+font-weight: bold;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 15px;
+box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+transition: all 0.3s ease;
+animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+.open-video-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+/* Modal */
+.hidden {
+display: none !important;
+}
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+backdrop-filter: blur(10px);
+z-index: 10000;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+animation: fadeIn 0.3s ease forwards;
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+.modal-content {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+overflow: hidden;
+border-radius: 25px;
+background: #000;
+box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+position: relative;
+animation: slideUp 0.5s ease;
+display: flex;
+flex-direction: column;
+}
+@keyframes slideUp {
+from { transform: translateY(50px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+/* Header */
+.video-header {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+padding: 20px 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
+}
+.header-content h1 {
+font-size: 1.8rem;
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 5px;
+}
+.header-content p {
+opacity: 0.9;
+font-size: 1rem;
+}
+.header-actions {
+display: flex;
+gap: 15px;
+align-items: center;
+}
+.upload-btn-header {
+background: rgba(255, 255, 255, 0.2);
+border: none;
+color: white;
+padding: 10px 20px;
+border-radius: 50px;
+font-size: 1rem;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 8px;
+transition: all 0.3s;
+}
+.upload-btn-header:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-2px);
+}
+.close-btn {
+background: rgba(255, 255, 255, 0.2);
+border: none;
+color: white;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 1.2rem;
+transition: all 0.3s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.close-btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: rotate(90deg);
+}
+/* Main Container */
+.main-container {
+display: flex;
+height: 100%;
+overflow: hidden;
+}
+/* Video Feed - Left Side */
+.video-feed-container {
+flex: 1;
+overflow-y: auto;
+padding: 25px;
+background: #0a0a0f;
+}
+/* Upload Section */
+.upload-section {
+background: rgba(255, 255, 255, 0.05);
+border-radius: 20px;
+padding: 25px;
+border: 1px solid rgba(102, 126, 234, 0.3);
+margin-bottom: 30px;
+display: none;
+}
+.upload-section.active {
+display: block;
+animation: expand 0.5s ease;
+}
+@keyframes expand {
+from { opacity: 0; max-height: 0; }
+to { opacity: 1; max-height: 1000px; }
+}
+.upload-header {
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 20px;
+color: #667eea;
+font-size: 1.3rem;
+}
+.upload-form .form-group {
+margin-bottom: 20px;
+}
+.form-label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: #00fff7;
+font-size: 1rem;
+}
+.form-input {
+width: 100%;
+padding: 12px 15px;
+background: rgba(255, 255, 255, 0.07);
+border: 1px solid rgba(102, 126, 234, 0.3);
+border-radius: 10px;
+color: white;
+font-size: 1rem;
+}
+.form-textarea {
+min-height: 100px;
+resize: vertical;
+}
+.drop-zone {
+border: 2px dashed rgba(102, 126, 234, 0.5);
+border-radius: 15px;
+padding: 40px 20px;
+text-align: center;
+cursor: pointer;
+transition: all 0.3s;
+background: rgba(102, 126, 234, 0.05);
+}
+.drop-zone:hover {
+border-color: #667eea;
+background: rgba(102, 126, 234, 0.1);
+}
+.drop-zone i {
+font-size: 3rem;
+margin-bottom: 15px;
+color: #667eea;
+}
+.selected-file {
+margin-top: 15px;
+padding: 12px;
+background: rgba(102, 126, 234, 0.1);
+border-radius: 10px;
+border-left: 4px solid #667eea;
+display: none;
+}
+.form-actions {
+display: flex;
+gap: 15px;
+margin-top: 25px;
+}
+.upload-btn {
+flex: 1;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+padding: 15px;
+border-radius: 12px;
+font-size: 1.1rem;
+font-weight: bold;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+transition: all 0.3s;
+}
+.upload-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+.cancel-btn {
+background: rgba(255, 255, 255, 0.1);
+color: white;
+border: 1px solid rgba(255, 255, 255, 0.2);
+padding: 15px 25px;
+border-radius: 12px;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s;
+}
+.cancel-btn:hover {
+background: rgba(255, 255, 255, 0.15);
+}
+/* Video Grid */
+.video-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 20px;
+}
+.video-card {
+background: rgba(255, 255, 255, 0.05);
+border-radius: 15px;
+overflow: hidden;
+transition: all 0.3s;
+border: 1px solid transparent;
+cursor: pointer;
+}
+.video-card:hover {
+transform: translateY(-5px);
+border-color: rgba(102, 126, 234, 0.3);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.video-thumbnail {
+position: relative;
+height: 180px;
+overflow: hidden;
+}
+.video-thumbnail img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s;
+}
+.video-card:hover .video-thumbnail img {
+transform: scale(1.05);
+}
+/* Play Button in Video Card */
+.play-btn-large {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 60px;
+height: 60px;
+background: rgba(255, 255, 255, 0.9);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.5rem;
+color: #667eea;
+cursor: pointer;
+opacity: 0;
+transition: opacity 0.3s;
+z-index: 2;
+}
+.video-card:hover .play-btn-large {
+opacity: 1;
+}
+.video-category {
+position: absolute;
+top: 10px;
+left: 10px;
+background: rgba(0, 0, 0, 0.8);
+color: white;
+padding: 5px 12px;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+.video-duration {
+position: absolute;
+bottom: 10px;
+right: 10px;
+background: rgba(0, 0, 0, 0.8);
+color: white;
+padding: 4px 10px;
+border-radius: 20px;
+font-size: 0.8rem;
+}
+.video-info {
+padding: 15px;
+}
+.video-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    word-break: break-word; /* optional, ensures long words break */
+}
+
+.video-description {
+    opacity: 0.9;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    word-break: break-word; /* ensures long words break properly */
+}
+
+.video-author {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 15px;
+}
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #667eea, #764ba2);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+}
+.author-info h4 {
+font-weight: 600;
+margin-bottom: 3px;
+font-size: 0.95rem;
+}
+.author-info p {
+font-size: 0.85rem;
+opacity: 0.7;
+}
+.video-stats {
+display: flex;
+justify-content: space-between;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+padding-top: 12px;
+}
+.stat-item {
+display: flex;
+align-items: center;
+gap: 6px;
+color: #a3b4ff;
+font-size: 0.9rem;
+}
+.stat-item i {
+color: #667eea;
+}
+/* Video Player Popup */
+.video-player-container {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 10001;
+display: none;
+justify-content: center;
+align-items: center;
+animation: fadeIn 0.3s ease;
+padding: 20px;
+}
+.video-player-container.active {
+display: flex;
+}
+.video-player-wrapper {
+width: 90%;
+max-width: 1000px;
+max-height: 90vh;
+background: #000;
+border-radius: 20px;
+overflow: hidden;
+position: relative;
+animation: scaleUp 0.3s ease;
+display: flex;
+flex-direction: column;
+}
+.video-player-header {
+padding: 20px;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
+}
+.video-player-title {
+font-size: 1.5rem;
+font-weight: bold;
+}
+.video-player-close {
+background: rgba(255, 255, 255, 0.2);
+border: none;
+color: white;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 1.2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.video-player-close:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: rotate(90deg);
+}
+.video-player-content {
+height: 400px;
+background: #000;
+flex-shrink: 0;
+}
+.video-player-content video {
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+.video-player-info {
+padding: 20px;
+background: #0a0a0f;
+overflow-y: auto;
+max-height: 300px;
+flex: 1;
+}
+/* Scrollbar styling */
+.video-player-info::-webkit-scrollbar {
+width: 6px;
+}
+.video-player-info::-webkit-scrollbar-track {
+background: rgba(255, 255, 255, 0.05);
+}
+.video-player-info::-webkit-scrollbar-thumb {
+background: #667eea;
+border-radius: 10px;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb {
+background: linear-gradient(180deg, #667eea, #764ba2);
+border-radius: 10px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+.modal-content {
+max-width: 95%;
+height: 95vh;
+}
+.video-header {
+flex-direction: column;
+gap: 15px;
+text-align: center;
+padding: 15px;
+}
+.header-actions {
+width: 100%;
+justify-content: center;
+}
+.video-grid {
+grid-template-columns: 1fr;
+}
+.video-player-wrapper {
+width: 95%;
+}
+.video-player-content {
+height: 300px;
+}
+}
+</style>
+</head>
+<body>
+    
+<!-- Open Video Feed Button -->
+<button onclick="openVideoNewsfeed()" class="open-video-btn">
+<i class="fas fa-play-circle"></i>
+OPEN CAMPUS VIDEO FEED
+</button>
+
+<!-- Main Video Feed Modal -->
+<div id="videoNewsfeedModal" class="modal hidden">
+<div class="modal-content">
+<!-- Header -->
+<div class="video-header">
+<div class="header-content">
+<h1>
+<i class="fas fa-play-circle"></i> Campus Video Feed
+</h1>
+<p>Real skills from real students • Tech Showcase Platform</p>
+</div>
+<div class="header-actions">
+<button onclick="toggleUploadSection()" class="upload-btn-header">
+<i class="fas fa-plus-circle"></i> Upload Video
+</button>
+<button onclick="closeVideoNewsfeed()" class="close-btn">
+<i class="fas fa-times"></i>
+</button>
+</div>
+</div>
+
+<!-- Main Container -->
+<div class="main-container">
+<!-- Video Feed -->
+<div class="video-feed-container" id="videoFeedContainer">
+<!-- Upload Section -->
+<div id="videoUploadSection" class="upload-section">
+<div class="upload-header">
+<i class="fas fa-cloud-upload-alt"></i>
+<h3>Upload Your Skill Video</h3>
+</div>
+<form id="videoUploadForm" onsubmit="uploadVideo(event)">
+<div class="form-group">
+<label class="form-label">Video Title *</label>
+<input type="text" id="videoTitle" class="form-input" placeholder="e.g., React Hooks Masterclass" required>
+</div>
+<div class="form-group">
+<label class="form-label">Description *</label>
+<textarea id="videoDescription" class="form-input form-textarea" placeholder="Describe your video content..." required></textarea>
+</div>
+<div class="form-group">
+<label class="form-label">Category *</label>
+<select id="videoCategory" class="form-input" required>
+<option value="">Select Technology</option>
+<option value="web-dev">Web Development</option>
+<option value="mobile-dev">Mobile Development</option>
+<option value="ai-ml">AI & Machine Learning</option>
+<option value="cybersecurity">Cybersecurity</option>
+<option value="blockchain">Blockchain</option>
+<option value="ui-ux">UI/UX Design</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Video File *</label>
+<div id="videoDropZone" class="drop-zone" onclick="document.getElementById('videoFile').click()">
+<i class="fas fa-video"></i>
+<p>Click or drag video file here</p>
+<p style="font-size: 0.9rem; opacity: 0.7;">MP4, MOV up to 500MB</p>
+<input type="file" id="videoFile" accept="video/*" style="display: none;" onchange="handleFileSelect(this)">
+</div>
+<div id="selectedFile" class="selected-file"></div>
+</div>
+<div class="form-actions">
+<button type="submit" class="upload-btn">
+<i class="fas fa-upload"></i> UPLOAD VIDEO
+</button>
+<button type="button" onclick="toggleUploadSection()" class="cancel-btn">
+Cancel
+</button>
+</div>
+</form>
+</div>
+
+<!-- Video Grid -->
+<div class="video-grid" id="videoGrid">
+<!-- Videos will be loaded here -->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Video Player Popup -->
+<div id="videoPlayerPopup" class="video-player-container">
+<div class="video-player-wrapper">
+<div class="video-player-header">
+<div class="video-player-title" id="playerTitle">Video Player</div>
+<button onclick="closeVideoPlayer()" class="video-player-close">
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="video-player-content">
+<video id="mainVideoPlayer" controls>
+<source src="" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="video-player-info">
+<h3 id="playerVideoTitle">Video Title</h3>
+<div class="video-stats">
+<span><i class="fas fa-eye"></i> <span id="playerViews">0</span> views</span>
+<span><i class="fas fa-thumbs-up"></i> <span id="playerLikes">0</span> likes</span>
+<span><i class="fas fa-clock"></i> <span id="playerDuration">0:00</span></span>
+</div>
+<p id="playerDescription" style="margin-top: 15px; opacity: 0.9; line-height: 1.6;"></p>
+
+<!-- Share Section - More content for scrolling -->
+<div style="margin-top: 25px;">
+<h4 style="margin-bottom: 15px; color: #667eea; font-size: 1.2rem;">
+<i class="fas fa-share-alt"></i> Share This Video
+</h4>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px;">
+<button onclick="shareVideo('facebook')" style="background: #1877f2; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<i class="fab fa-facebook"></i> Facebook
+</button>
+<button onclick="shareVideo('tiktok')" style="background: #000000; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<i class="fab fa-tiktok"></i> TikTok
+</button>
+<button onclick="shareVideo('whatsapp')" style="background: #25d366; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</button>
+<button onclick="shareVideo('twitter')" style="background: #1da1f2; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<i class="fab fa-twitter"></i> Twitter
+</button>
+<button onclick="shareVideo('instagram')" style="background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<i class="fab fa-instagram"></i> Instagram
+</button>
+<button onclick="shareVideo('linkedin')" style="background: #0a66c2; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<i class="fab fa-linkedin"></i> LinkedIn
+</button>
+</div>
+
+<!-- Additional Info for scrolling -->
+<div style="background: rgba(102, 126, 234, 0.1); padding: 15px; border-radius: 10px; margin-top: 15px;">
+<h5 style="color: #667eea; margin-bottom: 10px;">
+<i class="fas fa-info-circle"></i> Video Info
+</h5>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.9rem;">
+<div>
+<span style="opacity: 0.7;">Category:</span>
+<span style="color: #667eea; font-weight: 600;" id="playerCategory">Web Development</span>
+</div>
+<div>
+<span style="opacity: 0.7;">Uploaded:</span>
+<span style="color: #4CAF50;" id="playerDate">2 hours ago</span>
+</div>
+<div>
+<span style="opacity: 0.7;">Author:</span>
+<span style="color: #ff8e53;" id="playerAuthor">Alex Johnson</span>
+</div>
+<div>
+<span style="opacity: 0.7;">Format:</span>
+<span>MP4 • HD</span>
+</div>
+</div>
+</div>
+
+<!-- Comments Preview -->
+<div style="margin-top: 20px;">
+<h5 style="color: #667eea; margin-bottom: 10px;">
+<i class="fas fa-comment"></i> Top Comments
+</h5>
+<div style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 15px;">
+<div style="display: flex; gap: 10px; margin-bottom: 10px;">
+<div style="width: 30px; height: 30px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-user" style="font-size: 0.8rem;"></i>
+</div>
+<div>
+<div style="font-weight: 600;">Sarah Chen</div>
+<div style="opacity: 0.9; font-size: 0.9rem;">Amazing tutorial! Very helpful for beginners.</div>
+</div>
+</div>
+<div style="display: flex; gap: 10px;">
+<div style="width: 30px; height: 30px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-user" style="font-size: 0.8rem;"></i>
+</div>
+<div>
+<div style="font-weight: 600;">Mike Ross</div>
+<div style="opacity: 0.9; font-size: 0.9rem;">Best explanation I've seen on this topic!</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- View More Button -->
+<button style="width: 100%; background: rgba(102, 126, 234, 0.2); color: #667eea; border: 1px solid rgba(102, 126, 234, 0.3); padding: 12px; border-radius: 10px; margin-top: 15px; cursor: pointer; font-weight: 600;">
+<i class="fas fa-arrow-down"></i> Scroll Down for More
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Sample video data (12 videos)
+const videos = [
+{
+id: 1,
+title: "React Hooks Complete Tutorial",
+description: "Master React Hooks with real-world examples. Learn useState, useEffect, useContext, and custom hooks in this comprehensive tutorial.",
+category: "web-dev",
+author: "Alex Johnson",
+views: 1250,
+likes: 89,
+duration: "12:45",
+thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&h=300&fit=crop",
+date: "2 hours ago"
+},
+{
+id: 2,
+title: "Flutter UI Design Guide",
+description: "Build beautiful mobile interfaces with Flutter. Complete guide to Material Design widgets and custom animations.",
+category: "mobile-dev",
+author: "Sarah Chen",
+views: 890,
+likes: 67,
+duration: "18:20",
+thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500&h=300&fit=crop",
+date: "5 hours ago"
+},
+{
+id: 3,
+title: "Python Machine Learning Basics",
+description: "Introduction to Machine Learning with scikit-learn. From data preprocessing to model training and evaluation.",
+category: "ai-ml",
+author: "Dr. Michael Park",
+views: 2100,
+likes: 145,
+duration: "25:10",
+thumbnail: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=300&fit=crop",
+date: "1 day ago"
+},
+{
+id: 4,
+title: "Cybersecurity Best Practices",
+description: "Essential security measures every developer should know. Protect your applications from common vulnerabilities.",
+category: "cybersecurity",
+author: "Security Expert",
+views: 1560,
+likes: 92,
+duration: "15:30",
+thumbnail: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&h=300&fit=crop",
+date: "2 days ago"
+},
+{
+id: 5,
+title: "Smart Contract Development",
+description: "Build your first Ethereum smart contract using Solidity. Complete beginner's guide to blockchain development.",
+category: "blockchain",
+author: "Blockchain Dev",
+views: 1320,
+likes: 101,
+duration: "19:15",
+thumbnail: "https://images.unsplash.com/photo-1620336655055-bd87c5d1d73f?w=500&h=300&fit=crop",
+date: "4 days ago"
+},
+{
+id: 6,
+title: "UI/UX Design Principles",
+description: "Learn fundamental UI/UX design principles. Create user-friendly interfaces with Figma examples.",
+category: "ui-ux",
+author: "Design Guru",
+views: 980,
+likes: 78,
+duration: "22:45",
+thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=300&fit=crop",
+date: "3 days ago"
+},
+{
+id: 7,
+title: "JavaScript Async/Await",
+description: "Master asynchronous JavaScript with async/await. Practical examples for modern web development.",
+category: "web-dev",
+author: "JS Master",
+views: 1750,
+likes: 120,
+duration: "14:20",
+thumbnail: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=500&h=300&fit=crop",
+date: "6 hours ago"
+},
+{
+id: 8,
+title: "Kotlin for Android",
+description: "Learn Kotlin programming for Android development. Modern syntax and best practices.",
+category: "mobile-dev",
+author: "Android Expert",
+views: 1100,
+likes: 85,
+duration: "20:30",
+thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop",
+date: "1 day ago"
+},
+{
+id: 9,
+title: "Data Visualization with D3.js",
+description: "Create interactive data visualizations using D3.js. From basic charts to complex dashboards.",
+category: "web-dev",
+author: "Data Viz Pro",
+views: 920,
+likes: 68,
+duration: "28:15",
+thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
+date: "2 days ago"
+},
+{
+id: 10,
+title: "Docker Containerization",
+description: "Learn Docker from scratch. Containerize your applications for efficient deployment.",
+category: "web-dev",
+author: "DevOps Engineer",
+views: 1450,
+likes: 95,
+duration: "23:40",
+thumbnail: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&h=300&fit=crop",
+date: "3 days ago"
+},
+{
+id: 11,
+title: "SwiftUI iOS Development",
+description: "Build modern iOS apps with SwiftUI. Declarative UI framework with live previews.",
+category: "mobile-dev",
+author: "iOS Developer",
+views: 1050,
+likes: 82,
+duration: "17:55",
+thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop",
+date: "2 days ago"
+},
+{
+id: 12,
+title: "Node.js REST API",
+description: "Build scalable REST APIs with Node.js and Express. Authentication, validation, and deployment.",
+category: "web-dev",
+author: "Backend Master",
+views: 1900,
+likes: 110,
+duration: "26:30",
+thumbnail: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=500&h=300&fit=crop",
+date: "1 day ago"
+}
+];
+
+const categories = {
+'web-dev': { name: 'Web Dev', color: '#667eea', icon: 'fa-code' },
+'mobile-dev': { name: 'Mobile', color: '#4CAF50', icon: 'fa-mobile-alt' },
+'ai-ml': { name: 'AI/ML', color: '#FF9800', icon: 'fa-brain' },
+'cybersecurity': { name: 'Security', color: '#f44336', icon: 'fa-shield-alt' },
+'blockchain': { name: 'Blockchain', color: '#9C27B0', icon: 'fa-link' },
+'ui-ux': { name: 'UI/UX', color: '#FF4081', icon: 'fa-paint-brush' }
+};
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+loadVideos();
+// Setup drag and drop
+const dropZone = document.getElementById('videoDropZone');
+dropZone.addEventListener('dragover', handleDragOver);
+dropZone.addEventListener('drop', handleDrop);
+});
+
+// Modal functions
+function openVideoNewsfeed() {
+document.getElementById('videoNewsfeedModal').classList.remove('hidden');
+}
+
+function closeVideoNewsfeed() {
+document.getElementById('videoNewsfeedModal').classList.add('hidden');
+}
+
+function toggleUploadSection() {
+const uploadSection = document.getElementById('videoUploadSection');
+uploadSection.classList.toggle('active');
+}
+
+function cancelUpload() {
+toggleUploadSection();
+document.getElementById('videoUploadForm').reset();
+document.getElementById('selectedFile').style.display = 'none';
+document.getElementById('selectedFile').innerHTML = '';
+}
+
+// File handling
+function handleDragOver(e) {
+e.preventDefault();
+e.stopPropagation();
+e.dataTransfer.dropEffect = 'copy';
+}
+
+function handleDrop(e) {
+e.preventDefault();
+e.stopPropagation();
+const files = e.dataTransfer.files;
+if (files.length > 0) {
+handleFileSelect(files[0]);
+}
+}
+
+function handleFileSelect(input) {
+const file = input.files ? input.files[0] : input;
+const selectedFile = document.getElementById('selectedFile');
+if (file) {
+const fileSize = (file.size / (1024 * 1024)).toFixed(2);
+selectedFile.innerHTML = `
+<div style="display: flex; align-items: center; gap: 15px;">
+<i class="fas fa-video" style="color: #667eea; font-size: 1.5rem;"></i>
+<div style="flex: 1;">
+<div style="font-weight: 600;">${file.name}</div>
+<div style="font-size: 0.9rem; opacity: 0.8;">${fileSize} MB • ${file.type}</div>
+</div>
+<button onclick="clearFileSelection()" style="background: none; border: none; color: #ff4655; cursor: pointer;">
+<i class="fas fa-times"></i>
+</button>
+</div>
+`;
+selectedFile.style.display = 'block';
+}
+}
+
+function clearFileSelection() {
+document.getElementById('videoFile').value = '';
+document.getElementById('selectedFile').style.display = 'none';
+document.getElementById('selectedFile').innerHTML = '';
+}
+
+// Video upload
+function uploadVideo(event) {
+event.preventDefault();
+const title = document.getElementById('videoTitle').value;
+const category = document.getElementById('videoCategory').value;
+if (!title || !category) {
+alert('Please fill all required fields!');
+return;
+}
+if (!document.getElementById('videoFile').value) {
+alert('Please select a video file!');
+return;
+}
+
+// Add new video to feed
+const newVideo = {
+id: videos.length + 1,
+title: title,
+description: document.getElementById('videoDescription').value,
+category: category,
+author: "You",
+views: 0,
+likes: 0,
+duration: "15:30",
+thumbnail: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=300&fit=crop",
+date: "Just now"
+};
+
+videos.unshift(newVideo);
+alert(`Video "${title}" uploaded successfully!`);
+// Reset and update
+cancelUpload();
+loadVideos();
+}
+
+// Load videos to grid
+function loadVideos() {
+const videoGrid = document.getElementById('videoGrid');
+videoGrid.innerHTML = '';
+
+videos.forEach(video => {
+const category = categories[video.category] || { name: 'Tech', color: '#667eea', icon: 'fa-code' };
+const card = document.createElement('div');
+card.className = 'video-card';
+card.onclick = () => playVideo(video.id);
+card.innerHTML = `
+<div class="video-thumbnail">
+<img src="${video.thumbnail}" alt="${video.title}">
+<div class="play-btn-large">
+<i class="fas fa-play"></i>
+</div>
+<div class="video-category" style="background: ${category.color}">
+<i class="fas ${category.icon}"></i> ${category.name}
+</div>
+<div class="video-duration">${video.duration}</div>
+</div>
+<div class="video-info">
+<h3 class="video-title">${video.title}</h3>
+<p class="video-description">${video.description}</p>
+<div class="video-author">
+<div class="author-avatar">
+<i class="fas fa-user"></i>
+</div>
+<div class="author-info">
+<h4>${video.author}</h4>
+<p>${video.date}</p>
+</div>
+</div>
+<div class="video-stats">
+<div class="stat-item">
+<i class="fas fa-eye"></i>
+<span>${video.views.toLocaleString()}</span>
+</div>
+<div class="stat-item">
+<i class="fas fa-thumbs-up"></i>
+<span>${video.likes}</span>
+</div>
+</div>
+</div>
+`;
+videoGrid.appendChild(card);
+});
+}
+
+// Video player function
+function playVideo(videoId) {
+const video = videos.find(v => v.id === videoId);
+if (!video) return;
+
+// Update video views
+video.views++;
+const category = categories[video.category] || { name: 'Tech', color: '#667eea' };
+
+// Set player content
+document.getElementById('playerTitle').textContent = video.title;
+document.getElementById('playerVideoTitle').textContent = video.title;
+document.getElementById('playerViews').textContent = video.views.toLocaleString();
+document.getElementById('playerLikes').textContent = video.likes;
+document.getElementById('playerDuration').textContent = video.duration;
+document.getElementById('playerDescription').textContent = video.description;
+document.getElementById('playerCategory').textContent = category.name;
+document.getElementById('playerDate').textContent = video.date;
+document.getElementById('playerAuthor').textContent = video.author;
+
+// Set video source
+const videoPlayer = document.getElementById('mainVideoPlayer');
+videoPlayer.src = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+
+// Show the video player
+document.getElementById('videoPlayerPopup').classList.add('active');
+
+// Play video
+setTimeout(() => {
+videoPlayer.play().catch(e => {
+console.log('User must click play button');
+});
+}, 300);
+
+// Update the video card views
+loadVideos();
+}
+
+function closeVideoPlayer() {
+const videoPlayer = document.getElementById('mainVideoPlayer');
+videoPlayer.pause();
+videoPlayer.currentTime = 0;
+document.getElementById('videoPlayerPopup').classList.remove('active');
+}
+
+// Share video
+function shareVideo(platform) {
+const title = document.getElementById('playerVideoTitle').textContent;
+const message = `Watch this amazing video: "${title}" on Campus Video Feed!`;
+let url = '';
+
+switch(platform) {
+case 'facebook':
+url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(message)}`;
+break;
+case 'tiktok':
+alert(`Share on TikTok: ${message}`);
+return;
+case 'whatsapp':
+url = `https://wa.me/?text=${encodeURIComponent(message + ' ' + window.location.href)}`;
+break;
+case 'twitter':
+url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message + ' ' + window.location.href)}`;
+break;
+case 'instagram':
+alert(`Share on Instagram: ${message}`);
+return;
+case 'linkedin':
+url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(message)}`;
+break;
+}
+
+if(url) window.open(url, '_blank', 'width=600,height=400');
+}
+
+// Close modals when clicking outside
+window.onclick = function(event) {
+if (event.target.classList.contains('modal')) {
+closeVideoNewsfeed();
+}
+if (event.target.classList.contains('video-player-container')) {
+closeVideoPlayer();
+}
+};
+
+// Keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+closeVideoNewsfeed();
+closeVideoPlayer();
+}
+});
+
+// Demo: Auto open after 1 second
+setTimeout(() => {
+openVideoNewsfeed();
+}, 1000);
+</script>
+</body>
+</html>

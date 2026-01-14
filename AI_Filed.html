@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Campus Circle </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="main.html" class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                Campus Circle
+            </a>
+            <ul class="nav-menu">
+                <!-- <li class="nav-item"><a href="#home" class="nav-link">Home</a></li> -->
+                <li class="nav-item"><a href="#newsfeed" class="nav-link">Newsfeed</a></li>
+                <li class="nav-item"><a href="#marketplace" class="nav-link">Marketplace</a></li>
+                <li class="nav-item"><a href="battle_filed.html" class="nav-link">Battle</a></li>
+                <li class="nav-item"><a href="video_Feed.html" class="nav-link">Video</a></li>
+                <li class="nav-item"><a href="Practice_filed.html" class="nav-link">Practice</a></li>
+                <li class="nav-item"><a href="knowladge.html" class="nav-link">Knowledge</a></li>
+                <li class="nav-item"><a href="AI_Filed.html" class="nav-link">AI</a></li>
+                <li class="nav-item"><a href="#myProfile" class="nav-link">My Profile</a></li>
+                <li class="nav-item"><a href="#login" class="nav-link login btn">Student Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
+</body>
+<br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis-AI | Sovereign Intelligence Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d1b2a;
+            color: #e0e1dd;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Step 1: Welcome Page */
+        .step-container {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .step-container.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Common Styles */
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2a5b8c 0%, #3a86ff 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .logo-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #e0e1dd, #00b4d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo p {
+            color: #778da9;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            background: rgba(0, 180, 216, 0.1);
+            color: #00b4d8;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 180, 216, 0.2);
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2a5b8c 0%, #3a86ff 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(42, 91, 140, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00b4d8;
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+        }
+
+        /* Step 1 Specific */
+        .step1-container {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .login-header p {
+            color: #778da9;
+            font-size: 0.95rem;
+        }
+
+        .code-display {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .code-title {
+            font-size: 0.9rem;
+            color: #778da9;
+        }
+
+        .copy-btn {
+            background: rgba(0, 180, 216, 0.2);
+            color: #00b4d8;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(0, 180, 216, 0.4);
+        }
+
+        .hex-code {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-align: center;
+            color: #00b4d8;
+            font-weight: 600;
+            font-family: monospace;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box {
+            background: rgba(0, 180, 216, 0.1);
+            border-left: 4px solid #00b4d8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #e0e1dd;
+        }
+
+        /* Step 2 Specific */
+        .step2-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .step2-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-code {
+            background: rgba(0, 180, 216, 0.1);
+            color: #00b4d8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .concepts-section,
+        .upload-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: #00b4d8;
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .concept-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid #00b4d8;
+            transition: all 0.3s;
+        }
+
+        .concept-card:hover {
+            transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .concept-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .concept-title i {
+            color: #00b4d8;
+        }
+
+        .concept-desc {
+            color: #778da9;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .upload-area {
+            border: 3px dashed rgba(0, 180, 216, 0.3);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+            background: rgba(0, 180, 216, 0.05);
+        }
+
+        .upload-area:hover {
+            border-color: rgba(0, 180, 216, 0.6);
+            background: rgba(0, 180, 216, 0.1);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: #00b4d8;
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .upload-subtext {
+            color: #778da9;
+            font-size: 0.9rem;
+        }
+
+        .file-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 2rem;
+        }
+
+        .file-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .file-info i {
+            color: #00b4d8;
+            font-size: 1.2rem;
+        }
+
+        .file-name {
+            font-size: 0.95rem;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .remove-file {
+            color: #ff6b6b;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .train-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #2a5b8c 0%, #3a86ff 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .train-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(42, 91, 140, 0.3);
+        }
+
+        .train-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .training-progress {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            display: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-title {
+            font-weight: 600;
+            color: #00b4d8;
+        }
+
+        .progress-percent {
+            color: #00b4d8;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00b4d8, #00ccbb);
+            width: 0%;
+            transition: width 0.5s;
+            border-radius: 5px;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #778da9;
+            text-align: center;
+        }
+
+        .next-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00b4d8 0%, #00ccbb 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        /* Step 3 Specific */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .chat-header {
+            background: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .chat-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2a5b8c 0%, #3a86ff 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-logo-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .chat-header-title h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #e0e1dd, #00b4d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .chat-header-title p {
+            font-size: 0.85rem;
+            color: #778da9;
+        }
+
+        .persona-badge {
+            background: linear-gradient(135deg, #00b4d8 0%, #00ccbb 100%);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 15px;
+            animation: fadeIn 0.3s ease;
+            max-width: 85%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .user-message {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .ai-message {
+            align-self: flex-start;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .user-avatar {
+            background: linear-gradient(135deg, #2a5b8c 0%, #3a86ff 100%);
+        }
+
+        .ai-avatar {
+            background: linear-gradient(135deg, #00b4d8 0%, #00ccbb 100%);
+        }
+
+        .message-content {
+            max-width: calc(100% - 55px);
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .message-sender {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: #778da9;
+        }
+
+        .message-text {
+            padding: 1rem 1.5rem;
+            border-radius: 18px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            word-wrap: break-word;
+        }
+
+        .user-message .message-text {
+            background: rgba(42, 91, 140, 0.3);
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai-message .message-text {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-text pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .message-text code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .info-note {
+            background: rgba(0, 180, 216, 0.1);
+            border-left: 3px solid #00b4d8;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .chat-input-area {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(13, 27, 42, 0.8);
+            flex-shrink: 0;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 16px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            resize: none;
+            min-height: 60px;
+            max-height: 120px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #00b4d8;
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #2a5b8c 0%, #3a86ff 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover {
+            background: #1e4670;
+            transform: translateY(-2px);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #778da9;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e1dd;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            width: fit-content;
+            align-self: flex-start;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #00b4d8;
+            border-radius: 50%;
+            animation: typing 1.5s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: -0.3s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: -0.15s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .welcome-message {
+            text-align: center;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .welcome-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #e0e1dd, #00b4d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .welcome-subtitle {
+            color: #778da9;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            text-align: center;
+            margin-top: 2rem;
+            color: #778da9;
+            font-size: 0.9rem;
+        }
+
+        .step-indicator .step {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #778da9;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .step-indicator .step.active {
+            background: #00b4d8;
+            transform: scale(1.2);
+        }
+
+        /* Hidden Elements */
+        #fileInput {
+            display: none;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2a5b8c;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e4670;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .step-container {
+                padding: 1rem;
+            }
+
+            .chat-header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .chat-messages {
+                padding: 1rem;
+            }
+
+            .chat-input-area {
+                padding: 1rem;
+            }
+
+            .message {
+                max-width: 95%;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Step 1: Welcome & Login -->
+    <div class="step-container active" id="step1">
+        <div class="step1-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1>Aegis-AI</h1>
+                <p>Sovereign Intelligence Platform</p>
+            </div>
+            <div class="tagline">
+                Zero-Knowledge • Empty Vessel Architecture
+            </div>
+            <div class="login-box">
+                <div class="login-header">
+                    <h2>Welcome to Aegis-AI</h2>
+                    <p>Access your sovereign knowledge vault</p>
+                </div>
+                <div class="code-display">
+                    <div class="code-header">
+                        <div class="code-title">Your Sovereign Identity Code</div>
+                        <button class="copy-btn" id="copyCodeBtn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="hex-code" id="hexCode">A3F8B2C9D1E5</div>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="accessCode"><i class="fas fa-key"></i> Enter Access Code</label>
+                        <input type="text" id="accessCode" class="form-input" placeholder="Enter your 12-digit hex code"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i> Access Knowledge Vault
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="generateCodeBtn">
+                        <i class="fas fa-plus-circle"></i> Generate New Identity
+                    </button>
+                </form>
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i> No email or phone needed. Your hex code is your only identity.
+                    Store it securely.
+                </div>
+            </div>
+            <div class="step-indicator">
+                Step 1 of 3
+                <span class="step active"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Step 2: Upload & Train -->
+    <div class="step-container" id="step2">
+        <div class="step2-container">
+            <div class="step2-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Aegis-AI</h1>
+                        <p>Train Your Sovereign Intelligence</p>
+                    </div>
+                </div>
+                <div class="user-code" id="userCodeDisplay">
+                    <!-- Code will be inserted here -->
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="concepts-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-lightbulb"></i> How Aegis-AI Works
+                    </h2>
+                    <div class="concepts-grid">
+                        <div class="concept-card">
+                            <h3 class="concept-title">
+                                <i class="fas fa-ban"></i> Zero-Knowledge Base
+                            </h3>
+                            <p class="concept-desc">
+                                I have no pre-existing knowledge. I only learn from what you upload. No internet access,
+                                no hallucinations.
+                            </p>
+                        </div>
+                        <div class="concept-card">
+                            <h3 class="concept-title">
+                                <i class="fas fa-user-tie"></i> Dynamic Persona
+                            </h3>
+                            <p class="concept-desc">
+                                I adapt to your content. Upload coding files → become Code Expert. Upload research →
+                                become Research Assistant.
+                            </p>
+                        </div>
+                        <div class="concept-card">
+                            <h3 class="concept-title">
+                                <i class="fas fa-shield-alt"></i> Data Sovereignty
+                            </h3>
+                            <p class="concept-desc">
+                                Your data stays yours. No training of public models. Your personal knowledge vault with
+                                military-grade encryption.
+                            </p>
+                        </div>
+                        <div class="concept-card">
+                            <h3 class="concept-title">
+                                <i class="fas fa-brain"></i> Empty Vessel
+                            </h3>
+                            <p class="concept-desc">
+                                I start as an empty vessel. You fill me with your knowledge. I only answer based on your
+                                uploaded documents.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="upload-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-cloud-upload-alt"></i> Upload Your Knowledge
+                    </h2>
+                    <div class="upload-area" id="uploadTrigger">
+                        <i class="fas fa-file-upload"></i>
+                        <div class="upload-text">Click to Upload Files</div>
+                        <div class="upload-subtext">PDF, PPTX, DOCX, TXT, Images (Max 100MB each)</div>
+                    </div>
+                    <div class="file-list" id="fileList">
+                        <!-- Files will appear here -->
+                    </div>
+                    <div class="training-section">
+                        <button class="train-btn" id="trainBtn" disabled>
+                            <i class="fas fa-brain"></i> Train AI on Your Data
+                        </button>
+                        <div class="training-progress" id="trainingProgress">
+                            <div class="progress-header">
+                                <div class="progress-title">Training Aegis-AI</div>
+                                <div class="progress-percent" id="progressPercent">0%</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">Initializing training process...</div>
+                        </div>
+                    </div>
+                    <button class="next-btn" id="nextBtn">
+                        <i class="fas fa-arrow-right"></i> Proceed to Chat Interface
+                    </button>
+                </div>
+            </div>
+            <div class="step-indicator">
+                Step 2 of 3
+                <span class="step active"></span>
+                <span class="step active"></span>
+                <span class="step"></span>
+            </div>
+        </div>
+        <input type="file" id="fileInput" multiple accept=".pdf,.pptx,.docx,.txt,.jpg,.png">
+    </div>
+    <!-- Step 3: Chat Interface -->
+    <div class="step-container" id="step3">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="header-left">
+                    <div class="chat-logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="chat-header-title">
+                        <h1>Aegis-AI Chat</h1>
+                        <p>Sovereign Intelligence Assistant</p>
+                    </div>
+                    <div class="persona-badge" id="personaBadge">
+                        <i class="fas fa-user-tie"></i>
+                        <span id="personaText">Knowledge Assistant</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-message">
+                    <h2 class="welcome-title">Your Aegis-AI is Ready!</h2>
+                    <p class="welcome-subtitle">Start chatting with your sovereign intelligence assistant</p>
+                    <div style="text-align: left; max-width: 600px; margin: 2rem auto;">
+                        <p style="color: #778da9; margin-bottom: 1rem;">
+                            <strong>How this works:</strong>
+                        </p>
+                        <ol style="color: #778da9; margin-left: 1.5rem;">
+                            <li>I only answer based on your uploaded knowledge</li>
+                            <li>I never access external information or the internet</li>
+                            <li>Your conversations remain 100% private</li>
+                            <li>Try asking questions about your uploaded content</li>
+                        </ol>
+                    </div>
+                    <div
+                        style="background: rgba(0, 180, 216, 0.1); padding: 1rem; border-radius: 10px; margin-top: 2rem;">
+                        <p style="color: #00b4d8; font-size: 0.9rem;">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Tip:</strong> Try asking "What can you help me with?" or "Explain something from my
+                            documents"
+                        </p>
+                    </div>
+                </div>
+                <div class="message ai-message">
+                    <div class="message-avatar ai-avatar">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-header">
+                            <div class="message-sender">Aegis-AI</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                        <div class="message-text">
+                            Hello! I'm your sovereign intelligence assistant, trained on your uploaded documents.
+                            I operate with a <strong>zero-knowledge base</strong> - meaning I only reference your
+                            personal knowledge.
+                            <div class="info-note">
+                                <i class="fas fa-shield-alt"></i> I cannot hallucinate or access external information.
+                                All answers come from your uploaded content.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="input-container">
+                    <textarea class="chat-input" id="chatInput"
+                        placeholder="Ask me anything based on your uploaded knowledge..."></textarea>
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn" id="clearChatBtn">
+                        <i class="fas fa-trash"></i> Clear Chat
+                    </button>
+                    <button class="action-btn" id="suggestQuestionsBtn">
+                        <i class="fas fa-lightbulb"></i> Suggest Questions
+                    </button>
+                    <button class="action-btn" id="exportChatBtn">
+                        <i class="fas fa-download"></i> Export Chat
+                    </button>
+                    <button class="action-btn" id="newChatBtn">
+                        <i class="fas fa-plus"></i> New Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // App State
+        let currentStep = 1;
+        let currentHexCode = 'A3F8B2C9D1E5';
+        let uploadedFiles = [];
+        let isTraining = false;
+        let currentTopic = "general";
+        let chatHistory = [];
+
+        // AI Knowledge Base
+        const knowledgeBase = {
+            programming: {
+                persona: "Code Expert",
+                icon: "fa-code",
+                responses: [
+                    `Based on your uploaded Python files, here's how functions work:
+<pre>
+# Function definition
+def greet(name):
+    """Greet a person by name"""
+    return f"Hello, {name}!"
+# Function call
+message = greet("Alice")
+print(message) # Output: Hello, Alice!
+# Function with default parameter
+def power(base, exponent=2):
+    return base ** exponent
+print(power(3))    # 9 (3^2)
+print(power(3, 3)) # 27 (3^3)
+</pre>
+<strong>Key concepts from your notes:</strong>
+1. Functions help organize code into reusable blocks
+2. Parameters are inputs, return values are outputs
+3. Docstrings document what functions do
+4. Default parameters make functions flexible
+<div class="info-note">
+<i class="fas fa-code"></i> Examples extracted from your programming exercises.
+</div>`,
+                    `From your JavaScript materials, here's event handling:
+<pre>
+// Get DOM element
+const button = document.getElementById('submitBtn');
+// Add event listener
+button.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent form submission
+    console.log('Button clicked!');
+    // Get form data
+    const form = document.getElementById('myForm');
+    const formData = new FormData(form);
+    // Process data
+    for (let [key, value] of formData.entries()) {
+        console.log(\`\${key}: \${value}\`);
+    }
+});
+// Arrow function alternative
+button.addEventListener('click', (event) => {
+    console.log('Arrow function handler');
+});
+</pre>
+<strong>Event types from your notes:</strong>
+- click: Mouse click
+- submit: Form submission
+- keydown: Key press
+- change: Input value change
+- load: Page/asset loaded
+<div class="info-note">
+<i class="fas fa-file-code"></i> Event handling patterns from your web development files.
+</div>`,
+                    `Your OOP (Object-Oriented Programming) notes explain:
+<strong>Four Pillars of OOP:</strong>
+1. <strong>Encapsulation:</strong> Bundle data and methods, hide implementation
+2. <strong>Inheritance:</strong> Create new classes from existing ones
+3. <strong>Polymorphism:</strong> Same interface, different implementation
+4. <strong>Abstraction:</strong> Hide complex reality, expose essentials
+<strong>Python OOP Example:</strong>
+<pre>
+class Vehicle:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.mileage = 0
+    def drive(self, miles):
+        self.mileage += miles
+        print(f"Driven {miles} miles. Total: {self.mileage}")
+    def get_info(self):
+        return f"{self.year} {self.brand} {self.model}"
+class Car(Vehicle):
+    def __init__(self, brand, model, year, doors):
+        super().__init__(brand, model, year)
+        self.doors = doors
+    def honk(self):
+        print("Beep beep!")
+# Usage
+my_car = Car("Toyota", "Camry", 2022, 4)
+print(my_car.get_info()) # 2022 Toyota Camry
+my_car.drive(150)         # Driven 150 miles. Total: 150
+my_car.honk()             # Beep beep!
+</pre>`
+                ],
+                questions: [
+                    "What is a function in programming?",
+                    "Explain object-oriented programming",
+                    "How do I handle errors in code?",
+                    "What are data structures?",
+                    "Explain the difference between == and === in JavaScript"
+                ]
+            },
+            machine_learning: {
+                persona: "ML Expert",
+                icon: "fa-robot",
+                responses: [
+                    `From your ML notes, supervised vs unsupervised learning:
+<strong>Supervised Learning:</strong>
+- Needs labeled data (input-output pairs)
+- Examples: Classification, Regression
+- Algorithms: Linear Regression, Decision Trees, SVM, Neural Networks
+- Use when: You have labeled data and know what to predict
+<strong>Unsupervised Learning:</strong>
+- Works with unlabeled data
+- Examples: Clustering, Dimensionality Reduction
+- Algorithms: K-Means, PCA, DBSCAN, Autoencoders
+- Use when: You want to find patterns in data
+<strong>Key Differences:</strong>
+- Supervised: Predict known outputs
+- Unsupervised: Discover unknown patterns
+- Semi-supervised: Mix of both approaches
+<div class="info-note">
+<i class="fas fa-chart-line"></i> This explanation comes from your machine learning lecture notes.
+</div>`,
+                    `Your neural network materials explain:
+<strong>Neural Network Architecture:</strong>
+1. <strong>Input Layer:</strong> Receives features (e.g., 784 neurons for MNIST)
+2. <strong>Hidden Layers:</strong> Process information (ReLU, Sigmoid, Tanh activations)
+3. <strong>Output Layer:</strong> Produces predictions (Softmax for classification)
+<strong>Training Process:</strong>
+- Forward Propagation: Calculate predictions
+- Loss Calculation: Compare with actual values (Cross-entropy, MSE)
+- Backpropagation: Update weights using gradients
+- Optimization: Minimize loss (Adam, SGD, RMSprop)
+<strong>Example from your TensorFlow notes:</strong>
+<pre>
+import tensorflow as tf
+from tensorflow.keras import layers, models
+model = models.Sequential([
+    layers.Dense(128, activation='relu', input_shape=(784,)),
+    layers.Dropout(0.2),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+model.fit(x_train, y_train, epochs=10, validation_split=0.2)
+</pre>`
+                ],
+                questions: [
+                    "What is machine learning?",
+                    "Explain neural networks",
+                    "What is overfitting and how to prevent it?",
+                    "How does gradient descent work?",
+                    "What are activation functions in neural networks?"
+                ]
+            },
+            general: {
+                persona: "Knowledge Assistant",
+                icon: "fa-user-tie",
+                responses: [
+                    `I'm your Aegis-AI assistant, trained on your uploaded documents. I operate with a <strong>zero-knowledge base</strong>.
+<strong>What I can do:</strong>
+1. Answer questions from your uploaded files
+2. Explain concepts based on your materials
+3. Provide code analysis from your programming files
+4. Help with academic writing from your resources
+5. Summarize key points from your documents
+<strong>What I cannot do:</strong>
+1. Access the internet or external databases
+2. Hallucinate or make up information
+3. Reference knowledge outside your uploads
+4. Provide real-time information or news
+<strong>My Architecture:</strong>
+- Empty Vessel: Start with no knowledge
+- Zero-Knowledge Filtering: No external data access
+- Data Sovereignty: Your data remains yours
+- Dynamic Persona: Adapt to your content type
+<div class="info-note">
+<i class="fas fa-shield-alt"></i> All responses are generated solely from your uploaded knowledge base.
+</div>`,
+                    `Welcome to Aegis-AI! Based on your uploaded files, I've detected multiple knowledge domains.
+<strong>Try asking me:</strong>
+- "Explain Python functions from my notes"
+- "What is machine learning based on my documents?"
+- "Show me a code example from my files"
+- "Help me understand research methodologies"
+- "Summarize key concepts from my uploaded materials"
+<strong>Sample questions you could ask:</strong>
+1. "What programming concepts are in my files?"
+2. "Explain neural networks from my ML notes"
+3. "Show me how to handle errors in Python"
+4. "What are the main research methods?"
+5. "How do I write better code based on my materials?"
+<div class="info-note">
+<i class="fas fa-lightbulb"></i> I adapt to your conversation. The more specific your questions, the better I can help!
+</div>`
+                ],
+                questions: [
+                    "What can you help me with?",
+                    "How does Aegis-AI work?",
+                    "What topics are in my documents?",
+                    "Is my data secure with Aegis-AI?",
+                    "Can you summarize my uploaded content?"
+                ]
+            }
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', function () {
+            // Step 1: Login Page
+            document.getElementById('copyCodeBtn').addEventListener('click', function () {
+                navigator.clipboard.writeText(currentHexCode);
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                this.style.background = 'rgba(0, 180, 216, 0.4)';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '';
+                }, 2000);
+            });
+
+            document.getElementById('generateCodeBtn').addEventListener('click', function () {
+                const chars = '0123456789ABCDEF';
+                let result = '';
+                for (let i = 0; i < 12; i++) {
+                    result += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                currentHexCode = result;
+                document.getElementById('hexCode').textContent = currentHexCode;
+
+                const infoBox = document.querySelector('.info-box');
+                infoBox.innerHTML = `<i class="fas fa-check"></i> New identity generated: <strong>${currentHexCode}</strong>. Save this code securely.`;
+                infoBox.style.background = 'rgba(0, 180, 216, 0.2)';
+
+                setTimeout(() => {
+                    infoBox.innerHTML = '<i class="fas fa-info-circle"></i> No email or phone needed. Your hex code is your only identity. Store it securely.';
+                    infoBox.style.background = '';
+                }, 5000);
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const accessCode = document.getElementById('accessCode').value.trim();
+                const loginBtn = document.getElementById('loginBtn');
+
+                if (accessCode === currentHexCode || accessCode === 'A3F8B2C9D1E5') {
+                    loginBtn.innerHTML = '<i class="fas fa-check"></i> Access Granted';
+                    loginBtn.style.background = 'linear-gradient(135deg, #00b4d8 0%, #00ccbb 100%)';
+
+                    setTimeout(() => {
+                        goToStep(2);
+                    }, 1500);
+                } else {
+                    loginBtn.innerHTML = '<i class="fas fa-times"></i> Invalid Code';
+                    loginBtn.style.background = 'rgba(220, 53, 69, 0.8)';
+
+                    setTimeout(() => {
+                        loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Access Knowledge Vault';
+                        loginBtn.style.background = '';
+                    }, 2000);
+                }
+            });
+
+            // Step 2: Upload & Train
+            document.getElementById('uploadTrigger').addEventListener('click', function () {
+                document.getElementById('fileInput').click();
+            });
+
+            document.getElementById('fileInput').addEventListener('change', function (e) {
+                const files = Array.from(e.target.files);
+                files.forEach(file => {
+                    uploadedFiles.push({
+                        name: file.name,
+                        size: file.size,
+                        type: file.type,
+                        id: Date.now() + Math.random()
+                    });
+                });
+
+                updateFileList();
+                updateTrainButton();
+            });
+
+            document.getElementById('trainBtn').addEventListener('click', function () {
+                if (isTraining || uploadedFiles.length === 0) return;
+                startTraining();
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                goToStep(3);
+            });
+
+            // Step 3: Chat Interface
+            document.getElementById('sendBtn').addEventListener('click', sendMessage);
+            document.getElementById('chatInput').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            document.getElementById('clearChatBtn').addEventListener('click', function () {
+                if (confirm("Clear chat history? (Welcome messages will remain)")) {
+                    clearChat();
+                }
+            });
+
+            document.getElementById('suggestQuestionsBtn').addEventListener('click', suggestQuestions);
+            document.getElementById('exportChatBtn').addEventListener('click', exportChat);
+            document.getElementById('newChatBtn').addEventListener('click', function () {
+                if (confirm("Start new chat session? This will reset your current conversation.")) {
+                    goToStep(1);
+                }
+            });
+
+            // Initialize
+            showStep(1);
+        });
+
+        // Step Navigation
+        function showStep(step) {
+            document.querySelectorAll('.step-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+            currentStep = step;
+
+            if (step === 2) {
+                document.getElementById('userCodeDisplay').textContent = `Code: ${currentHexCode}`;
+            }
+        }
+
+        function goToStep(step) {
+            showStep(step);
+
+            if (step === 3) {
+                // Initialize chat interface
+                const chatMessages = document.getElementById('chatMessages');
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Set demo placeholder
+                const demoQuestions = [
+                    "What is Python?",
+                    "Explain machine learning",
+                    "How do I write a function?",
+                    "What is object-oriented programming?",
+                    "Can you show me a code example?"
+                ];
+                const randomQuestion = demoQuestions[Math.floor(Math.random() * demoQuestions.length)];
+                document.getElementById('chatInput').placeholder = `Try asking: "${randomQuestion}"`;
+            }
+        }
+
+        // Step 2 Functions
+        function updateFileList() {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+
+            if (uploadedFiles.length === 0) {
+                fileList.innerHTML = '<div style="text-align: center; color: #778da9; padding: 20px;">No files uploaded yet</div>';
+                return;
+            }
+
+            uploadedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+<div class="file-info">
+<i class="fas ${getFileIcon(file.name)}"></i>
+<div class="file-name">${file.name}</div>
+</div>
+<div class="remove-file" onclick="removeFile(${index})">
+<i class="fas fa-times"></i>
+</div>
+`;
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        function removeFile(index) {
+            uploadedFiles.splice(index, 1);
+            updateFileList();
+            updateTrainButton();
+        }
+
+        function getFileIcon(filename) {
+            if (filename.includes('.pdf')) return 'fa-file-pdf';
+            if (filename.includes('.pptx')) return 'fa-file-powerpoint';
+            if (filename.includes('.docx')) return 'fa-file-word';
+            if (filename.includes('.txt')) return 'fa-file-alt';
+            if (filename.includes('.jpg') || filename.includes('.png')) return 'fa-file-image';
+            return 'fa-file';
+        }
+
+        function updateTrainButton() {
+            const trainBtn = document.getElementById('trainBtn');
+            trainBtn.disabled = uploadedFiles.length === 0;
+        }
+
+        function startTraining() {
+            isTraining = true;
+            const progress = document.getElementById('trainingProgress');
+            const progressFill = document.getElementById('progressFill');
+            const progressPercent = document.getElementById('progressPercent');
+            const progressText = document.getElementById('progressText');
+            const trainBtn = document.getElementById('trainBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            progress.style.display = 'block';
+            trainBtn.disabled = true;
+            trainBtn.innerHTML = '<i class="fas fa-cog fa-spin"></i> Training...';
+
+            const steps = [
+                "Reading uploaded files...",
+                "Extracting text content...",
+                "Processing document structure...",
+                "Identifying key concepts...",
+                "Creating semantic embeddings...",
+                "Building knowledge graph...",
+                "Optimizing retrieval system...",
+                "Configuring AI persona...",
+                "Finalizing training..."
+            ];
+
+            let progressValue = 0;
+            const interval = setInterval(() => {
+                progressValue += Math.random() * 10 + 5;
+                if (progressValue > 100) progressValue = 100;
+
+                progressFill.style.width = `${progressValue}%`;
+                progressPercent.textContent = `${Math.round(progressValue)}%`;
+
+                const stepIndex = Math.min(
+                    Math.floor(progressValue / (100 / steps.length)),
+                    steps.length - 1
+                );
+                progressText.textContent = steps[stepIndex];
+
+                if (progressValue >= 100) {
+                    clearInterval(interval);
+
+                    setTimeout(() => {
+                        progressText.textContent = "Training complete! AI is ready.";
+                        trainBtn.innerHTML = '<i class="fas fa-check"></i> Training Complete';
+                        nextBtn.style.display = 'flex';
+                        isTraining = false;
+                    }, 1000);
+                }
+            }, 400);
+        }
+
+        // Step 3 Functions
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+
+            if (!message) return;
+
+            addUserMessage(message);
+            input.value = '';
+
+            detectTopic(message);
+
+            showTypingIndicator();
+
+            setTimeout(() => {
+                removeTypingIndicator();
+                const aiResponse = generateAIResponse(message);
+                addAIMessage(aiResponse);
+
+                chatHistory.push({
+                    user: message,
+                    ai: aiResponse,
+                    time: new Date().toLocaleTimeString()
+                });
+            }, 800 + Math.random() * 1200);
+        }
+
+        function addUserMessage(text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            messageDiv.innerHTML = `
+<div class="message-avatar user-avatar">
+<i class="fas fa-user"></i>
+</div>
+<div class="message-content">
+<div class="message-header">
+<div class="message-sender">You</div>
+<div class="message-time">${time}</div>
+</div>
+<div class="message-text">${text}</div>
+</div>
+`;
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addAIMessage(htmlContent) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message ai-message';
+
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            messageDiv.innerHTML = `
+<div class="message-avatar ai-avatar">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="message-content">
+<div class="message-header">
+<div class="message-sender">Aegis-AI</div>
+<div class="message-time">${time}</div>
+</div>
+<div class="message-text">${htmlContent}</div>
+</div>
+`;
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function detectTopic(message) {
+            message = message.toLowerCase();
+
+            if (message.includes('python') || message.includes('javascript') || message.includes('java') ||
+                message.includes('code') || message.includes('program') || message.includes('function') ||
+                message.includes('oop') || message.includes('class') || message.includes('variable')) {
+                currentTopic = "programming";
+                updatePersona("Code Expert", "fa-code");
+            } else if (message.includes('machine learning') || message.includes('ml') || message.includes('ai') ||
+                message.includes('neural') || message.includes('model') || message.includes('train') ||
+                message.includes('algorithm') || message.includes('data science')) {
+                currentTopic = "machine_learning";
+                updatePersona("ML Expert", "fa-robot");
+            } else {
+                currentTopic = "general";
+                updatePersona("Knowledge Assistant", "fa-user-tie");
+            }
+        }
+
+        function updatePersona(name, icon) {
+            document.getElementById('personaText').textContent = name;
+            const badgeIcon = document.querySelector('#personaBadge i');
+            badgeIcon.className = `fas ${icon}`;
+        }
+
+        function generateAIResponse(userMessage) {
+            const responses = knowledgeBase[currentTopic].responses;
+            const randomIndex = Math.floor(Math.random() * responses.length);
+            return responses[randomIndex];
+        }
+
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typingIndicator';
+
+            typingDiv.innerHTML = `
+<div class="typing-dot"></div>
+<div class="typing-dot"></div>
+<div class="typing-dot"></div>
+`;
+
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function clearChat() {
+            const chatMessages = document.getElementById('chatMessages');
+            const welcomeMessage = document.querySelector('.welcome-message');
+            const firstAIMessage = document.querySelector('.ai-message');
+
+            const messages = Array.from(chatMessages.children);
+            messages.forEach(child => {
+                if (child !== welcomeMessage && child !== firstAIMessage && child.id !== 'typingIndicator') {
+                    child.remove();
+                }
+            });
+
+            chatHistory = [];
+
+            addAIMessage(`Chat cleared. I'm ready to continue our conversation based on your uploaded knowledge.`);
+        }
+
+        function suggestQuestions() {
+            const questions = knowledgeBase[currentTopic].questions;
+
+            let questionList = `<strong>Suggested questions based on current topic:</strong><br><br>`;
+
+            const shuffled = [...questions].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 3);
+
+            selected.forEach((q, i) => {
+                questionList += `${i + 1}. ${q}<br>`;
+            });
+
+            questionList += `<br><div class="info-note">
+<i class="fas fa-lightbulb"></i> Try asking any of these questions! I'll answer based on your uploaded documents.
+</div>`;
+
+            addAIMessage(questionList);
+        }
+
+        function exportChat() {
+            if (chatHistory.length === 0) {
+                addAIMessage("No chat history to export yet. Start a conversation first!");
+                return;
+            }
+
+            let exportText = "=== Aegis-AI Chat Export ===\n\n";
+
+            chatHistory.forEach((entry, index) => {
+                exportText += `[${entry.time}]\n`;
+                exportText += `You: ${entry.user}\n`;
+                exportText += `Aegis-AI: ${entry.ai.replace(/<[^>]*>/g, '')}\n\n`;
+            });
+
+            const blob = new Blob([exportText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `aegis-ai-chat-${new Date().toLocaleDateString().replace(/\//g, '-')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            addAIMessage(`Chat exported successfully!<br><br><div class="info-note">
+<i class="fas fa-download"></i> Downloaded as text file with ${chatHistory.length} conversation exchanges.
+</div>`);
+        }
+    </script>
+    
+</body>
+
+</html>

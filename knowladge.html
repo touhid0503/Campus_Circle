@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Campus Circle </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                Campus Circle
+            </a>
+            <ul class="nav-menu">
+                <!-- <li class="nav-item"><a href="#home" class="nav-link">Home</a></li> -->
+                <li class="nav-item"><a href="#newsfeed" class="nav-link">Newsfeed</a></li>
+                <li class="nav-item"><a href="#marketplace" class="nav-link">Marketplace</a></li>
+                <li class="nav-item"><a href="battle_filed.html" class="nav-link">Battle</a></li>
+                <li class="nav-item"><a href="video_Feed.html" class="nav-link">Video</a></li>
+                <li class="nav-item"><a href="Practice_filed.html" class="nav-link">Practice</a></li>
+                <li class="nav-item"><a href="knowladge.html" class="nav-link">Knowledge</a></li>
+                <li class="nav-item"><a href="AI_Filed.html" class="nav-link">AI</a></li>
+                <li class="nav-item"><a href="#myProfile" class="nav-link">My Profile</a></li>
+                <li class="nav-item"><a href="#login" class="nav-link login btn">Student Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</body>
+<br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Nexus | Learn • Share • Grow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --neon-glow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: var(--neon-glow);
+            }
+
+            to {
+                box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+            }
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            letter-spacing: 1px;
+        }
+
+        .nav-main {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 120px;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Main Container */
+        .main-container {
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section Tabs */
+        .section-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .section-tab {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .section-tab:hover {
+            background: rgba(124, 58, 237, 0.1);
+            color: white;
+        }
+
+        .section-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Content Panels */
+        .content-panel {
+            display: none;
+            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Knowledge Cards Grid */
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .knowledge-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .knowledge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .knowledge-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .knowledge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .knowledge-type {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--primary);
+        }
+
+        .type-free {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .type-paid {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+        }
+
+        .knowledge-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .knowledge-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .knowledge-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .knowledge-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient-secondary);
+        }
+
+        .event-card:hover {
+            transform: translateX(10px);
+            border-color: var(--secondary);
+        }
+
+        .event-date {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Jobs Grid */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .job-badge {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .job-company {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Create Form */
+        .create-form {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--dark);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid var(--primary);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: modalSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalSlide {
+            from {
+                transform: translateY(60px) scale(0.95);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* GitHub Integration */
+        .github-card {
+            background: linear-gradient(135deg, #24292e 0%, #1c2128 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+
+            .knowledge-grid,
+            .events-grid,
+            .jobs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-main {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .hero {
+                margin-top: 150px;
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .main-container {
+                padding: 1rem;
+            }
+
+            .knowledge-grid,
+            .events-grid,
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .create-form {
+                padding: 2rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-tab {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .knowledge-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Notification Badge */
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="logo-text">
+                <h1>KNOWLEDGE NEXUS</h1>
+                <p>Learn • Share • Grow</p>
+            </div>
+        </div>
+
+        <nav class="nav-main">
+
+            <a href="#" class="nav-link active" onclick="showPanel('explore')">
+                <i class="fas fa-compass"></i> Explore
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('events')">
+                <i class="fas fa-calendar-alt"></i> Events
+                <span class="badge">3</span>
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('career')">
+                <i class="fas fa-briefcase"></i> Careers
+                <span class="badge">12</span>
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('share')">
+                <i class="fas fa-share-alt"></i> Share
+            </a>
+            <a href="#" class="nav-link" onclick="showPanel('github')">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="main.html" class="nav-link" onclick="history.back()">
+                <i class="fas fa-arrow"></i> Campus Circle
+            </a>
+
+        </nav>
+
+        <div class="cta-buttons">
+            <button class="btn btn-secondary">
+                <i class="fas fa-user"></i> Sign In
+            </button>
+            <button class="btn btn-primary">
+                <i class="fas fa-rocket"></i> Join Free
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Where Experts Share,<br>Students Learn</h1>
+            <p>A collaborative platform where industry experts share cutting-edge knowledge, students learn through
+                curated resources, and everyone grows together in the tech ecosystem.</p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">1,250+</div>
+                    <div class="stat-label">Experts</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5,800+</div>
+                    <div class="stat-label">Resources</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">250+</div>
+                    <div class="stat-label">Events</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">980+</div>
+                    <div class="stat-label">Jobs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Section Tabs -->
+        <div class="section-tabs">
+            <button class="section-tab active" onclick="showPanel('explore')">
+                <i class="fas fa-graduation-cap"></i> Knowledge Hub
+            </button>
+            <button class="section-tab" onclick="showPanel('events')">
+                <i class="fas fa-microphone"></i> Tech Events
+            </button>
+            <button class="section-tab" onclick="showPanel('career')">
+                <i class="fas fa-briefcase"></i> Jobs & Internships
+            </button>
+            <button class="section-tab" onclick="showPanel('share')">
+                <i class="fas fa-upload"></i> Share Resource
+            </button>
+            <button class="section-tab" onclick="showPanel('github')">
+                <i class="fab fa-github"></i> Open Source
+            </button>
+        </div>
+
+        <!-- Explore Panel -->
+        <div id="explore-panel" class="content-panel active">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2
+                    style="font-size: 2.5rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Latest Knowledge Resources
+                </h2>
+                <select class="form-select" style="width: auto; min-width: 200px;">
+                    <option>All Topics</option>
+                    <option>AI/ML</option>
+                    <option>Web Development</option>
+                    <option>Cybersecurity</option>
+                    <option>Blockchain</option>
+                    <option>Cloud Computing</option>
+                </select>
+            </div>
+
+            <div class="knowledge-grid" id="knowledge-resources">
+                <!-- Resources will be loaded here -->
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-primary" style="padding: 1rem 3rem;">
+                    <i class="fas fa-sync-alt"></i> Load More Resources
+                </button>
+            </div>
+        </div>
+
+        <!-- Events Panel -->
+        <div id="events-panel" class="content-panel">
+            <h2
+                style="font-size: 2.5rem; margin-bottom: 2rem; background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Upcoming Tech Events
+            </h2>
+
+            <div class="events-grid" id="events-list">
+                <!-- Events will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Career Panel -->
+        <div id="career-panel" class="content-panel">
+            <h2
+                style="font-size: 2.5rem; margin-bottom: 2rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Job Opportunities
+            </h2>
+
+            <div class="jobs-grid" id="jobs-list">
+                <!-- Jobs will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Share Panel -->
+        <div id="share-panel" class="content-panel">
+            <div class="create-form">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Share Your Knowledge</h2>
+
+                <div class="form-group">
+                    <label class="form-label">Resource Title *</label>
+                    <input type="text" class="form-input" placeholder="e.g., Complete React Masterclass 2024"
+                        id="resourceTitle">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description *</label>
+                    <textarea class="form-textarea" placeholder="Detailed description of your resource..."
+                        id="resourceDesc"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Resource Type</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="resourceType" value="free" checked>
+                            <span>Free Resource</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="resourceType" value="paid">
+                            <span>Premium Resource</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Price (if paid)</label>
+                    <input type="number" class="form-input" placeholder="Enter amount in USD" id="resourcePrice"
+                        min="0">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">GitHub Repository (Optional)</label>
+                    <input type="url" class="form-input" placeholder="https://github.com/username/repo" id="githubRepo">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tags</label>
+                    <input type="text" class="form-input" placeholder="e.g., react, javascript, frontend"
+                        id="resourceTags">
+                </div>
+
+                <button class="btn btn-primary" onclick="shareResource()"
+                    style="width: 100%; padding: 1.2rem; font-size: 1.1rem;">
+                    <i class="fas fa-share"></i> Publish Resource
+                </button>
+            </div>
+        </div>
+
+        <!-- GitHub Panel -->
+        <div id="github-panel" class="content-panel">
+            <div class="github-card">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Open Source Collaboration</h2>
+                <p style="color: #cbd5e1; margin-bottom: 2rem; line-height: 1.6;">
+                    Connect your GitHub account to share repositories, collaborate on open-source projects, and
+                    contribute to the community.
+                </p>
+
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div
+                            style="width: 60px; height: 60px; background: #24292e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">Connect GitHub Account</div>
+                            <div style="color: #94a3b8; font-size: 0.9rem;">Link your repositories to share with the
+                                community</div>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-link"></i> Connect
+                        </button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1rem;">Trending Repositories</h3>
+                    <div class="knowledge-grid">
+                        <!-- GitHub repos will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resource Detail Modal -->
+        <div id="resource-modal" class="modal">
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                    <div>
+                        <span id="modal-type" class="type-free"
+                            style="margin-bottom: 1rem; display: inline-block;">FREE</span>
+                        <h2 id="modal-title" style="font-size: 2rem; margin-bottom: 1rem;"></h2>
+                    </div>
+                    <button onclick="closeModal()"
+                        style="background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 1.5rem;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+                    <div style="flex: 1;">
+                        <div style="color: #94a3b8; margin-bottom: 0.5rem;">Shared by</div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                                AK
+                            </div>
+                            <div>
+                                <div style="font-weight: 600;">Alex Kumar</div>
+                                <div style="color: #94a3b8; font-size: 0.9rem;">Senior Software Engineer @ Google</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="color: #94a3b8; margin-bottom: 0.5rem;">Price</div>
+                        <div id="modal-price" style="font-size: 2rem; font-weight: 800; color: var(--accent);">FREE
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modal-description" style="margin-bottom: 2rem; line-height: 1.6; color: #cbd5e1;"></div>
+
+                <div class="tags" id="modal-tags"></div>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button class="btn btn-primary" onclick="accessResource()">
+                        <i class="fas fa-download"></i> Access Resource
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-heart"></i> Save
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Detail Modal -->
+        <div id="event-modal" class="modal">
+            <div class="modal-content">
+                <!-- Event details will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Job Detail Modal -->
+        <div id="job-modal" class="modal">
+            <div class="modal-content">
+                <!-- Job details will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sample Data
+        const knowledgeData = [
+            {
+                id: 1,
+                title: "Complete React Masterclass 2024",
+                description: "Learn React from scratch with hooks, context API, Redux, and build 5 real projects. Includes best practices and performance optimization.",
+                type: "free",
+                author: "Sarah Chen",
+                role: "Frontend Lead @ Microsoft",
+                views: "2.5K",
+                tags: ["react", "javascript", "frontend", "webdev"],
+                price: 0,
+                github: "https://github.com/sarah/react-masterclass"
+            },
+            {
+                id: 2,
+                title: "Machine Learning for Beginners",
+                description: "Complete ML course covering Python, NumPy, Pandas, Scikit-learn, TensorFlow. Build 3 projects from scratch.",
+                type: "paid",
+                author: "Dr. Michael Park",
+                role: "AI Researcher @ Stanford",
+                views: "1.8K",
+                tags: ["machine-learning", "python", "ai", "data-science"],
+                price: 49,
+                github: ""
+            },
+            {
+                id: 3,
+                title: "DevOps with Docker & Kubernetes",
+                description: "Master containerization, orchestration, CI/CD pipelines, and cloud deployment strategies.",
+                type: "free",
+                author: "Alex Johnson",
+                role: "DevOps Engineer @ AWS",
+                views: "3.2K",
+                tags: ["devops", "docker", "kubernetes", "cloud"],
+                price: 0,
+                github: "https://github.com/alex/devops-guide"
+            },
+            {
+                id: 4,
+                title: "Cybersecurity Fundamentals",
+                description: "Learn ethical hacking, network security, cryptography, and security best practices.",
+                type: "paid",
+                author: "Security Expert",
+                role: "Security Consultant",
+                views: "1.1K",
+                tags: ["cybersecurity", "hacking", "security", "networking"],
+                price: 79,
+                github: ""
+            }
+        ];
+
+        const eventsData = [
+            {
+                id: 1,
+                title: "AI Summit 2024",
+                date: "Mar 15-16, 2024",
+                type: "conference",
+                location: "San Francisco & Virtual",
+                price: "Free",
+                organizer: "Google AI",
+                description: "Annual AI conference featuring top researchers and industry leaders."
+            },
+            {
+                id: 2,
+                title: "Web3 Hackathon",
+                date: "Apr 20-21, 2024",
+                type: "hackathon",
+                location: "Online",
+                price: "Free",
+                organizer: "Ethereum Foundation",
+                description: "48-hour hackathon to build innovative Web3 solutions."
+            },
+            {
+                id: 3,
+                title: "Women in Tech Conference",
+                date: "May 8, 2024",
+                type: "workshop",
+                location: "New York",
+                price: "$99",
+                organizer: "Women Who Code",
+                description: "Empowering women in technology through workshops and networking."
+            }
+        ];
+
+        const jobsData = [
+            {
+                id: 1,
+                title: "Frontend Developer Intern",
+                company: "Meta",
+                location: "Remote",
+                type: "internship",
+                duration: "3 months",
+                stipend: "$3,000/month",
+                deadline: "Mar 30, 2024",
+                description: "Work on React-based applications, collaborate with design team."
+            },
+            {
+                id: 2,
+                title: "ML Engineer",
+                company: "OpenAI",
+                location: "San Francisco",
+                type: "full-time",
+                salary: "$180,000-$250,000",
+                deadline: "Apr 15, 2024",
+                description: "Develop and optimize machine learning models for NLP tasks."
+            },
+            {
+                id: 3,
+                title: "DevOps Engineer",
+                company: "Netflix",
+                location: "Los Gatos, CA",
+                type: "full-time",
+                salary: "$160,000-$220,000",
+                deadline: "Apr 30, 2024",
+                description: "Manage cloud infrastructure and CI/CD pipelines at scale."
+            }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            createParticles();
+            loadKnowledgeResources();
+            loadEvents();
+            loadJobs();
+            setupAnimations();
+        });
+
+        // Create Floating Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.background = Math.random() > 0.5 ? '#7c3aed' : '#06b6d4';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Panel Navigation
+        function showPanel(panelId) {
+            // Hide all panels
+            document.querySelectorAll('.content-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Remove active from all tabs
+            document.querySelectorAll('.section-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show selected panel
+            document.getElementById(`${panelId}-panel`).classList.add('active');
+
+            // Set active tab
+            document.querySelectorAll('.section-tab').forEach(tab => {
+                if (tab.textContent.includes(panelId.charAt(0).toUpperCase() + panelId.slice(1))) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Set active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.textContent.includes(panelId.charAt(0).toUpperCase() + panelId.slice(1))) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Load Knowledge Resources
+        function loadKnowledgeResources() {
+            const grid = document.getElementById('knowledge-resources');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+
+            knowledgeData.forEach(resource => {
+                const card = document.createElement('div');
+                card.className = 'knowledge-card';
+                card.innerHTML = `
+                    <div class="knowledge-header">
+                        <span class="knowledge-type type-${resource.type}">
+                            ${resource.type.toUpperCase()}
+                        </span>
+                        ${resource.github ? '<i class="fab fa-github" style="color: #94a3b8;"></i>' : ''}
+                    </div>
+                    <h3 class="knowledge-title">${resource.title}</h3>
+                    <p class="knowledge-description">${resource.description}</p>
+                    
+                    <div class="tags">
+                        ${resource.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    
+                    <div class="knowledge-meta">
+                        <div>
+                            <div style="font-weight: 600;">${resource.author}</div>
+                            <div style="font-size: 0.8rem; color: #94a3b8;">${resource.role}</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 600;">${resource.views} views</div>
+                            <div style="font-size: 0.8rem; color: #94a3b8;">
+                                ${resource.type === 'paid' ? `$${resource.price}` : 'FREE'}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-actions">
+                        <button class="btn btn-primary" onclick="viewResource(${resource.id})">
+                            <i class="fas fa-eye"></i> View Details
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Load Events
+        function loadEvents() {
+            const grid = document.getElementById('events-list');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+
+            eventsData.forEach(event => {
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                card.innerHTML = `
+                    <div class="event-date">${event.date}</div>
+                    <h3 class="event-title">${event.title}</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 1.5rem; line-height: 1.6;">
+                        ${event.description}
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600;">${event.organizer}</div>
+                            <div style="color: #94a3b8; font-size: 0.9rem;">${event.location}</div>
+                        </div>
+                        <div>
+                            <span style="background: ${event.price === 'Free' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(245, 158, 11, 0.2)'}; color: ${event.price === 'Free' ? '#10b981' : '#f59e0b'}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600;">
+                                ${event.price}
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <button class="btn btn-secondary" onclick="registerEvent(${event.id})" style="flex: 1;">
+                            <i class="fas fa-calendar-plus"></i> Register
+                        </button>
+                        <button class="btn btn-secondary" onclick="viewEvent(${event.id})">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Load Jobs
+        function loadJobs() {
+            const grid = document.getElementById('jobs-list');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+
+            jobsData.forEach(job => {
+                const card = document.createElement('div');
+                card.className = 'job-card';
+                card.innerHTML = `
+                    <div class="job-badge">
+                        ${job.type === 'internship' ? '🎓 Internship' : '💼 Full-time'}
+                    </div>
+                    
+                    <div class="job-company">
+                        <div class="company-logo">
+                            ${job.company.charAt(0)}
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.25rem;">
+                                ${job.title}
+                            </h3>
+                            <div style="color: #94a3b8;">${job.company} • ${job.location}</div>
+                        </div>
+                    </div>
+                    
+                    <p style="color: #cbd5e1; margin-bottom: 1.5rem; line-height: 1.6;">
+                        ${job.description}
+                    </p>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <div>
+                            <div style="font-weight: 600; color: var(--accent);">
+                                ${job.type === 'internship' ? job.stipend : job.salary}
+                            </div>
+                            <div style="color: #94a3b8; font-size: 0.9rem;">
+                                Apply by ${job.deadline}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-primary" onclick="applyJob(${job.id})" style="flex: 1;">
+                            <i class="fas fa-paper-plane"></i> Apply Now
+                        </button>
+                        <button class="btn btn-secondary" onclick="viewJob(${job.id})">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // View Resource Details
+        function viewResource(id) {
+            const resource = knowledgeData.find(r => r.id === id);
+            if (!resource) return;
+
+            document.getElementById('modal-title').textContent = resource.title;
+            document.getElementById('modal-type').className = `type-${resource.type}`;
+            document.getElementById('modal-type').textContent = resource.type.toUpperCase();
+            document.getElementById('modal-price').textContent = resource.type === 'paid' ? `$${resource.price}` : 'FREE';
+            document.getElementById('modal-description').textContent = resource.description;
+
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = resource.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+            document.getElementById('resource-modal').style.display = 'flex';
+        }
+
+        // Share Resource
+        function shareResource() {
+            const title = document.getElementById('resourceTitle').value;
+            const description = document.getElementById('resourceDesc').value;
+            const type = document.querySelector('input[name="resourceType"]:checked').value;
+            const price = type === 'paid' ? document.getElementById('resourcePrice').value : 0;
+            const github = document.getElementById('githubRepo').value;
+            const tags = document.getElementById('resourceTags').value.split(',').map(tag => tag.trim());
+
+            if (!title || !description) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Create new resource
+            const newResource = {
+                id: knowledgeData.length + 1,
+                title,
+                description,
+                type,
+                author: "You",
+                role: "Contributor",
+                views: "0",
+                tags,
+                price: parseInt(price),
+                github
+            };
+
+            knowledgeData.unshift(newResource);
+
+            // Show success message with animation
+            const submitBtn = document.querySelector('#share-panel .btn-primary');
+            const originalHTML = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Published!';
+            submitBtn.style.background = 'var(--success)';
+
+            setTimeout(() => {
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.style.background = '';
+
+                // Reset form
+                document.getElementById('resourceTitle').value = '';
+                document.getElementById('resourceDesc').value = '';
+                document.getElementById('resourcePrice').value = '';
+                document.getElementById('githubRepo').value = '';
+                document.getElementById('resourceTags').value = '';
+
+                // Show success modal
+                alert('Resource published successfully! It is now live for the community.');
+
+                // Reload resources
+                loadKnowledgeResources();
+                showPanel('explore');
+
+            }, 1500);
+        }
+
+        // Access Resource
+        function accessResource() {
+            const modal = document.getElementById('resource-modal');
+            const title = document.getElementById('modal-title').textContent;
+            const type = document.getElementById('modal-type').textContent;
+
+            if (type === 'PAID') {
+                alert(`Premium Resource: "${title}"\n\nThis is a premium resource. Proceed to payment to access.`);
+            } else {
+                alert(`Free Resource: "${title}"\n\nRedirecting to download page...`);
+                setTimeout(() => {
+                    window.open('https://example.com/download', '_blank');
+                }, 1000);
+            }
+        }
+
+        // Register for Event
+        function registerEvent(eventId) {
+            const event = eventsData.find(e => e.id === eventId);
+            if (!event) return;
+
+            if (event.price !== 'Free') {
+                alert(`Registration for "${event.title}"\n\nPrice: ${event.price}\n\nProceed to payment to complete registration.`);
+            } else {
+                alert(`Successfully registered for "${event.title}"!\n\nA confirmation email has been sent to you.`);
+            }
+        }
+
+        // Apply for Job
+        function applyJob(jobId) {
+            const job = jobsData.find(j => j.id === jobId);
+            if (!job) return;
+
+            alert(`Applying for: ${job.title} @ ${job.company}\n\nRedirecting to application form...`);
+            setTimeout(() => {
+                // In real app, this would open application form
+                console.log('Application process started');
+            }, 1000);
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('resource-modal').style.display = 'none';
+            document.getElementById('event-modal').style.display = 'none';
+            document.getElementById('job-modal').style.display = 'none';
+        }
+
+        // Setup Animations
+        function setupAnimations() {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.knowledge-card, .event-card, .job-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            });
+
+            // Animate stats
+            const stats = document.querySelectorAll('.stat-value');
+            stats.forEach(stat => {
+                const finalValue = parseInt(stat.textContent);
+                let current = 0;
+                const increment = finalValue / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= finalValue) {
+                        stat.textContent = finalValue + '+';
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + '+';
+                    }
+                }, 30);
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
